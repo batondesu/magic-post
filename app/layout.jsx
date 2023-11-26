@@ -1,14 +1,31 @@
 import './HomePage/assets/css/animate.min.css'
 import './HomePage/assets/css/slick.css'
 import './HomePage/assets/css/tailwind-built.css'
-import Home from './page'
+
+// import Home from './page'
+import Header from './HomePage/header'
+import Hero from './HomePage/hero'
+import Features from './HomePage/features'
+import Work from './HomePage/work'
+import Search from './HomePage/search'
+import Footer from './HomePage/footer'
+import Trial from './HomePage/trial'
+
 import Script from 'next/script'
 
 export default function RootLayout() {
   return (
     <html lang="en">
       <body className="bg-white text-body font-body">
-        <Home />
+        <div class="main">
+          <Header />
+          <Hero />
+          <Search />
+          <Features />
+          <Work />
+          <Trial />
+          <Footer />
+        </div>
         <Script data-cfasync="false" src="./HomePage/assets/js/vendor/email-decode.min.js"></Script>
         <Script src="./HomePage/assets/js/vendor/modernizr-3.6.0.min.js"></Script>
         <Script src="./HomePage/assets/js/vendor/jquery-3.6.0.min.js"></Script>
