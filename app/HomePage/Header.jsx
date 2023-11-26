@@ -1,8 +1,5 @@
 import Image from "next/image";
 import imageAsset1 from './assets/imgs/logos/monst-logo.svg'
-import imageAsset12 from './assets/imgs/icons/facebook-blue.svg'
-import imageAsset13 from './assets/imgs/icons/instagram-blue.svg'
-import imageAsset14 from './assets/imgs/icons/twitter-blue.svg'
 
 export default function Header() {
     return (
@@ -17,70 +14,33 @@ export default function Header() {
                             <li class="pt-4 pb-4">
                                 <a href="home" class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500">Trang chủ</a>
                             </li>
-                            <li class="group relative pt-4 pb-4 has-child">
-                                <a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="aboutus">Giới thiệu </a>
-                                <ul class="drop-down-menu min-w-200">
-                                    <li>
-                                        <a href="about-1" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Lịch sử hình thành</a>
-                                    </li>
-                                    <li>
-                                        <a href="about-2" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Tầm nhìn sứ mệnh</a>
-                                    </li>
-                                    <li>
-                                        <a href="about-3" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Cơ cấu tổ chức</a>
-                                    </li>
-                                    <li>
-                                        <a href="about-4" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Ban lãnh đạo</a>
-                                    </li>
-                                    <li>
-                                        <a href="about-5" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Văn hóa doanh nghiệp</a>
-                                    </li>
-                                </ul>
+                            <li class="pt-4 pb-4">
+                                <a href="#how-we-work" class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500">Giới thiệu</a>
                             </li>
                             <li class="pt-4 pb-4">
-                                <a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="services">Dịch vụ</a>
-                            </li>
-                            <li class="group relative pt-4 pb-4 has-child">
-                                <a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="counter-partner">Đối tác</a>
-                                <ul class="drop-down-menu min-w-200">
-                                    <li>
-                                        <a href="ems" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">EMS</a>
-                                    </li>
-                                    <li>
-                                        <a href="jtexpress" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">J&T Express</a>
-                                    </li>
-                                    <li>
-                                        <a href="vnpost" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Vietnam Post</a>
-                                    </li>
-                                    <li>
-                                        <a href="lalamove" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Lalamove</a>
-                                    </li>
-                                    <li>
-                                        <a href="hkpost" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Hongkong Post</a>
-                                    </li>
-                                </ul>
+                                <a href="#search" class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500">Tra cứu</a>
                             </li>
                             <li class="group relative pt-4 pb-4 has-child">
                                 <a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="news">Tin tức</a>
                                 <ul class="drop-down-menu min-w-200">
                                     <li>
-                                        <a href="news-1" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Tin nội bộ</a>
+                                        <a href="#news" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Tin nội bộ</a>
                                     </li>
                                     <li>
-                                        <a href="news-2" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Tin dịch vụ mới</a>
+                                        <a href="#news" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Tin dịch vụ mới</a>
                                     </li>
                                     <li>
-                                        <a href="news-3" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Tin ngành</a>
+                                        <a href="#news" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Tin ngành</a>
                                     </li>
                                     <li>
-                                        <a href="news-4" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Tin quốc tế</a>
+                                        <a href="#news" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Tin quốc tế</a>
                                     </li>
                                     <li>
-                                        <a href="news-5" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Thông tin hữu ích</a>
+                                        <a href="#news" class="menu-sub-item text-sm text-blueGray-600 hover:text-blueGray-500">Thông tin hữu ích</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="pt-4 pb-4"><a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="contact">Liên hệ</a></li>
+                            <li class="pt-4 pb-4"><a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="#contact">Liên hệ</a></li>
                         </ul>
                         <div class="hidden lg:block">
                             <a class="btn-accent hover-up-2" href="login">Đăng nhập</a>
@@ -180,21 +140,6 @@ export default function Header() {
                             <a class="block px-4 py-3 mb-3 text-xs text-center font-semibold leading-none bg-blue-400 hover:bg-blue-500 text-white rounded" href="signup">Đăng ký</a>
                             <a class="block px-4 py-3 mb-2 text-xs text-center text-blue-500 hover:text-blue-700 font-semibold leading-none border border-blue-200 hover:border-blue-300 rounded" href="login">Đăng nhập</a>
                         </div>
-                    </div>
-                    <div class="mt-auto">
-                        <p class="my-4 text-xs text-blueGray-400">
-                            <span>Get in Touch</span>
-                            <a class="text-blue-500 hover:text-blue-500 underline" href="#"><span class="__cf_email__" data-cfemail="4625292832272532062b292835326825292b">[email&#160;protected]</span></a>
-                        </p>
-                        <a class="inline-block px-1" href="#">
-                            <Image src={imageAsset12} alt="" />
-                        </a>
-                        <a class="inline-block px-1" href="#">
-                            <Image src={imageAsset13} alt="" />
-                        </a>
-                        <a class="inline-block px-1" href="#">
-                            <Image src={imageAsset14} alt="" />
-                        </a>
                     </div>
                 </nav>
             </div>

@@ -2,7 +2,7 @@ import imageAsset11 from './assets/imgs/elements/blob.svg'
 
 export default function Search() {
     return (
-        <section class="py-20 bg-top bg-no-repeat" style={{ backgroundImage: `url(${imageAsset11.src})` }}>
+        <section class="py-20 bg-top bg-no-repeat" id="search" style={{ backgroundImage: `url(${imageAsset11.src})` }}>
             <div class="container px-4 mx-auto">
                 <div class="relative py-20 px-4 lg:p-20">
                     <div class="max-w-lg mx-auto text-center">

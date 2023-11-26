@@ -6,7 +6,7 @@ import imageAsset21 from './assets/imgs/icons/enterprise.svg'
 
 export default function Trial() {
     return (
-        <section class="py-20 xl:bg-contain bg-top bg-no-repeat" style={{ backgroundImage: `url( ${imageAsset18.src} )` }}>
+        <section class="py-20 xl:bg-contain bg-top bg-no-repeat" id="info" style={{ backgroundImage: `url( ${imageAsset18.src} )` }}>
             <div class="container px-4 mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="max-w-lg mx-auto mb-4 text-4xl font-bold font-heading wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
@@ -82,7 +82,7 @@ export default function Trial() {
                                         <svg class="w-6 h-6 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
-                                        <span>Khu vực miền Bắc</span>
+                                        <span>Chi nhánh miền Bắc</span>
                                     </li>
                                 </ul>
                             </div>
