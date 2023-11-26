@@ -1,10 +1,10 @@
-import Header from './HomePage/Header'
-import Hero from './HomePage/Hero'
-import Features from './HomePage/Features'
-import HowWeWork from './HomePage/HowWeWork'
-import Complex from './HomePage/Complex'
-import Feedback from './HomePage/Feedback'
-import Footer from './HomePage/Footer';
+import Header from './HomePage/header'
+import Hero from './HomePage/hero'
+import Features from './HomePage/features'
+import Work from './HomePage/work'
+import Search from './HomePage/search'
+import Footer from './HomePage/footer'
+import Trial from './HomePage/trial'
 
 export default function Home() {
   return (
@@ -12,9 +12,9 @@ export default function Home() {
       <Header />
       <Hero />
       <Features />
-      <HowWeWork />
-      <Complex />
-      <Feedback />
+      <Work />
+      <Search />
+      <Trial />
       <Footer />
     </div>
   )

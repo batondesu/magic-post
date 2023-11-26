@@ -1,28 +1,35 @@
 import Image from "next/image";
+import imageAsset2 from './assets/imgs/backgrounds/intersect.svg'
+import imageAsset3 from './assets/imgs/elements/pattern.png'
+import imageAsset4 from './assets/imgs/logos/background.jpg'
 
 export default function Hero() {
     return (
-        <section class="xl:bg-contain bg-top bg-no-repeat -mt-24 pt-24" style={{ backgroundImage: 'url("/app/HomePage/assets/imgs/backgrounds/intersect.svg")' }}>
+        <section class="xl:bg-contain bg-top bg-no-repeat -mt-24 pt-24" style={{ backgroundImage: `url( ${imageAsset2.src} )` }}>
             <div class="container px-4 mx-auto">
                 <div class="pt-12 text-center">
                     <div class="max-w-2xl mx-auto mb-8">
                         <h2 class="text-3xl lg:text-5xl lg:leading-normal mb-4 font-bold font-heading wow animate__animated animate__fadeIn">
-                        Committed to People <br />Committed <span class="text-blue-500">to the Future</span></h2>
-                        <p class="text-blueGray-400 leading-relaxed wow animate__animated animate__fadeIn">We are <strong class="text-blue-500">Monst</strong>, 
-                        a Creative Design <span class="typewrite d-inline text-brand" data-period="3000" data-type='["Web Agency", "Social Marketing" ]'></span></p>
+                            <span class="text-blue-500"> Magic Post</span>
+                        </h2> 
+                        <p class="text-blueGray-400 leading-relaxed wow animate__animated animate__fadeIn">
+                            Nhấn chọn <strong class="text-blue-500"> Hỏa tốc</strong>, 
+                            giao nhanh cực sốc 
+                            <span class="typewrite d-inline text-brand" data-period="3000" data-type='["Web Agency", "Social Marketing" ]'></span>
+                        </p>
                     </div>
                     <div>
-                        <a class="btn-primary py-4 px-8 mr-2 wow animate__animated animate__fadeInUp hover-up-2" href="#key-features">Key Features</a>
-                        <a class="btn-white wow animate__animated animate__fadeInUp hover-up-2" data-wow-delay=".3s" href="#how-we-work">How We Work?</a>
+                        <a class="btn-primary py-4 px-8 mr-2 wow animate__animated animate__fadeInUp hover-up-2" href="#key-features">Dịch vụ nổi bật</a>
+                        <a class="btn-white wow animate__animated animate__fadeInUp hover-up-2" data-wow-delay=".3s" href="#how-we-work">Các hoạt động</a>
                     </div>
                 </div>
             </div>
             <div class="relative max-w-6xl mt-16 md:mt-8 mb-8 mx-auto">
-                <Image src="/app/HomePage/assets/imgs/elements/pattern.png" width={200} height={50} alt="" />
+                <Image src={imageAsset3} alt="" />
                 <div class="absolute" style={{ top: '9%', left: '14%', width: '72%', height: '66%' }}>
                     <Image class="jump rounded wow animate__animated animate__fadeInUp" 
-                        src="/app/HomePage/assets/imgs/placeholders/dashboard.png"
-                        width={200} height={50} alt="" 
+                        src={imageAsset4}
+                        alt="" 
                     />
                 </div>
             </div>
