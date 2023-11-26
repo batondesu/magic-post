@@ -11,9 +11,9 @@ export default function Home() {
     <div class="main">
       <Header />
       <Hero />
+      <Search />
       <Features />
       <Work />
-      <Search />
       <Trial />
       <Footer />
     </div>
