@@ -6,7 +6,7 @@ import imageAsset21 from './assets/imgs/icons/enterprise.svg'
 
 export default function Trial() {
     return (
-        <section class="py-20 xl:bg-contain bg-top bg-no-repeat" style={{ backgroundImage: `url( ${imageAsset18.src} )` }}>
+        <section class="py-20 xl:bg-contain bg-top bg-no-repeat" id="info" style={{ backgroundImage: `url( ${imageAsset18.src} )` }}>
             <div class="container px-4 mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="max-w-lg mx-auto mb-4 text-4xl font-bold font-heading wow animate__animated animate__fadeInUp" data-wow-delay=".2s">

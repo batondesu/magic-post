@@ -20,7 +20,7 @@ export default function Hero() {
                     </div>
                     <div>
                         <a class="btn-primary py-4 px-8 mr-2 wow animate__animated animate__fadeInUp hover-up-2" href="#key-features">Dịch vụ nổi bật</a>
-                        <a class="btn-white wow animate__animated animate__fadeInUp hover-up-2" data-wow-delay=".3s" href="#how-we-work">Các hoạt động</a>
+                        <a class="btn-white wow animate__animated animate__fadeInUp hover-up-2" data-wow-delay=".3s" href="#works">Các hoạt động</a>
                     </div>
                 </div>
             </div>

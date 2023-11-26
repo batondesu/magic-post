@@ -7,7 +7,7 @@ import imageAsset14 from './assets/imgs/icons/twitter-blue.svg'
 export default function Footer() {
     return (
         <>
-            <section class="py-20">
+            <section class="py-20" id="contact">
                 <div class="container">
                     <div class="max-w-2xl lg:max-w-3xl mx-auto">
                         <div class="mb-12 text-center">

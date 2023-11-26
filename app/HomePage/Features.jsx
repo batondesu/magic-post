@@ -11,7 +11,7 @@ export default function Features() {
                         <div class="lg:py-6 lg:pr-32 wow animate__animated animate__fadeIn" data-wow-delay=".3s">
                             <div class="mb-4">
                                 <span class="text-xs py-1 px-3 text-blue-500 font-semibold bg-blue-50 rounded-xl wow animate__animated animate__fadeInDown" data-wow-delay=".9s">Tại sao chọn chúng tôi?</span>
-                                <h2 class="text-4xl mt-5 font-bold font-heading wow animate__animated animate__fadeInUp" data-wow-delay=".3s">Dịch vụ nổi bật</h2>
+                                <h2 class="text-4xl mt-5 font-bold font-heading text-blue-600 wow animate__animated animate__fadeInUp" data-wow-delay=".3s">Dịch vụ nổi bật</h2>
                             </div>
                             <div class="flex items-start py-4 wow animate__animated animate__fadeInUp" data-wow-delay=".5s">
                                 <div class="w-8 mr-5 text-blue-500">

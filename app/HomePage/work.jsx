@@ -2,6 +2,8 @@ import Image from "next/image";
 import imageAsset15 from './assets/imgs/illustrations/eating.svg'
 import imageAsset16 from './assets/imgs/illustrations/space.svg'
 import imageAsset17 from './assets/imgs/illustrations/tasks.svg'
+import imageAsset18 from './assets/imgs/placeholders/act.jpg'
+
 
 export default function Work() {
     return (
@@ -12,16 +14,16 @@ export default function Work() {
                         <div class="w-full lg:w-1/2 mb-4 lg:mb-0">
                             <h2 class="text-3xl md:text-4xl font-bold font-heading wow animate__animated animate__fadeInDown">
                                 <span>Nhanh chóng, </span>
-                                <span class="text-blue-500">chính xác</span>
+                                <span class="text-blue-600">chính xác</span>
                                 <br />
                                 <span>an toàn và </span> 
-                                <span class="text-blue-500">chuyên nghiệp</span>
+                                <span class="text-blue-600">chuyên nghiệp</span>
                             </h2>
                         </div>
                         <div class="w-full lg:w-1/2 lg:pl-16">
                             <p class="text-blueGray-400 leading-loose wow animate__animated animate__fadeInUp">
-                            Dịch vụ chuyển phát nhanh MagicPost cho phép vận chuyển tất cả các loại hàng hóa trong thời gian nhanh chóng, chính xác và chuyên nghiệp. 
-                            Thời điểm hiện tại, dịch vụ chuyển phát nhanh MagicPost ở Việt Nam đang được 100% các bưu điện và bưu cục cung cấp trên 63 tỉnh thành. 
+                                Dịch vụ chuyển phát nhanh MagicPost cho phép vận chuyển tất cả các loại hàng hóa trong thời gian nhanh chóng, chính xác và chuyên nghiệp. 
+                                Thời điểm hiện tại, dịch vụ chuyển phát nhanh MagicPost ở Việt Nam đang được 100% các bưu điện và bưu cục cung cấp trên 63 tỉnh thành. 
                             </p>
                         </div>
                     </div>
@@ -50,7 +52,41 @@ export default function Work() {
                     </div>
                 </div>
             </section>
-            <section class="py-20" id="how-we-work">
+            <section class="py-12" id="works">
+                <div class="container py-12 mx-auto">
+                    <div class="flex flex-wrap">
+                        <div class="w-full md:w-1/2 px-3 order-1 md:order-0">
+                            <div class="max-w-md">
+                                <h3 class="mb-4 text-3xl md:text-3xl font-bold font-heading wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
+                                    <span class="text-3xl text-blue-600">Các hoạt động </span>
+                                </h3>
+                                <p class="mb-6 leading-loose text-blueGray-400 wow animate__animated animate__fadeInUp" data-wow-delay=".5s">
+                                    MagicPost là công ty hoạt động trong lĩnh vực chuyển phát. 
+                                    Công ty này có các điểm giao dịch phủ khắp cả nước.
+                                </p>
+                                <ul>
+                                    <li class="py-4 wow animate__animated animate__fadeInUp" data-wow-delay=".7s">
+                                        <span class="inline-block py-2 px-4 mr-4 text-xs font-semibold bg-blue-500 text-white rounded">1</span>
+                                        <span>Ước tính cước phí</span>
+                                    </li>
+                                    <li class="py-4 wow animate__animated animate__fadeInUp" data-wow-delay=".9s">
+                                        <span class="inline-block py-2 px-4 mr-4 text-xs font-semibold bg-blue-500 text-white rounded">2</span>
+                                        <span>Tìm kiếm bưu cục</span>
+                                    </li>
+                                    <li class="pt-4 wow animate__animated animate__fadeInUp" data-wow-delay=".11s">
+                                        <span class="inline-block py-2 px-4 mr-4 text-xs font-semibold bg-blue-500 text-white rounded">3</span>
+                                        <span>Tra hàng cấm gửi</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 px-3 order-0 md:order-1 mb-12 md:mb-0 wow animate__animated animate__fadeIn" data-wow-delay=".5s">
+                            <Image class="sm:max-w-sm lg:max-w-full mx-auto" src={imageAsset18} alt="" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-20" id="news">
                 <div class="container">
                     <div class="flex flex-wrap -mx-8">
                         <div class="w-full lg:w-1/2 px-8">
@@ -59,9 +95,9 @@ export default function Work() {
                                     <span class="text-blue-600">Tin tức chính </span>
                                 </h2>
                                 <p class="mb-8 leading-loose text-blueGray-400 wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
-                                    <strong>Hướng dẫn định vị bưu gửi EMS với mã vận đơn vô cùng đơn giản</strong>
+                                    <strong>Hướng dẫn định vị bưu gửi với mã vận đơn vô cùng đơn giản</strong>
                                     <br/> Để yên tâm trong quá trình giao nhận hàng hóa, nhiều khách hàng thường có xu hướng tra cứu vận đơn bưu điện để xác định lộ trình của đơn hàng. 
-                                    Hiện nay, EMS cung cấp rất nhiều cách để giúp bạn xác định được tiến độ giao nhận. 
+                                    Hiện nay, Magic Post cung cấp rất nhiều cách để giúp bạn xác định được tiến độ giao nhận. 
                                     Trong đó phổ biến nhất là kiểm tra đơn hàng bưu điện thông qua website hoặc các nền tảng mạng xã hội khác. 
                                 </p>
                                 <a class="inline-block text-xs py-4 px-8 text-white font-semibold leading-none bg-blue-400 hover:bg-blue-500 rounded hover-up-2 wow animate__animated animate__fadeInUp" data-wow-delay=".5s" href="#">
