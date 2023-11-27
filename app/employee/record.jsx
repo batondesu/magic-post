@@ -14,7 +14,7 @@ export default function Record() {
                         </h3>
                         <span id="result"></span>
                     </div>
-                </div>
+                </div> 
                 <div className="clearfix" />
                 <form
                     method="POST"

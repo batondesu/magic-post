@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import imageAsset1 from './assets/imgs/logos/monst-logo.svg'
+import Link from 'next/link';
 
 export default function Header() {
     return (
@@ -44,8 +45,12 @@ export default function Header() {
                             <li className="pt-4 pb-4"><a className="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="#contact">Liên hệ</a></li>
                         </ul>
                         <div className="hidden lg:block">
-                            <a className="btn-accent hover-up-2" href="login">Đăng nhập</a>
-                            <a className="btn-primary hover-up-2" href="register">Đăng ký</a>
+                            <Link legacyBehavior href="/login">
+                                <a className="btn-accent hover-up-2">Đăng nhập</a>
+                            </Link>
+                            <Link legacyBehavior href="/register">
+                                <a className="btn-primary hover-up-2" >Đăng ký</a>
+                            </Link>
                         </div>
                         <div className="lg:hidden">
                             <button className="navbar-burger flex items-center py-2 px-3 text-blue-500 hover:text-blue-700 rounded border border-blue-200 hover:border-blue-300">

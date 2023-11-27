@@ -13,21 +13,21 @@ import './assets/css/tailwind-built.css'
 
 export default function PageHome() {
     return (
-        <body className="bg-white text-body font-body">
-            <div class="main">
-                <Header />
+        <>
+            <Header />
+            <div className="main">
                 <Hero />
                 <Search />
                 <Features />
                 <Work />
                 <Trial />
-                <Footer />
             </div>
             <a id="scrollUp" href="#top" style={{ position: 'fixed', zIndex: '2147483647' }}>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
             </svg>
             </a>
-        </body>
+            <Footer />
+        </>
     )
 }
