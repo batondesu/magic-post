@@ -1,4 +1,5 @@
 // pages/register.js
+import '/app/global.css'
 
 import React from "react";
 import Link from "next/link";
