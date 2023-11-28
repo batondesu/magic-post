@@ -5,7 +5,7 @@ import Receipt from "./receipt/page"
 export default function Home() {
   return (
     <>
-      <Receipt />
+      <PageHome />
     </>
   )
 }
