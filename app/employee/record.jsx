@@ -609,7 +609,7 @@ export default function Record() {
                                             >
                                                 GHI NHẬN ĐƠN HÀNG{" "}
                                                 <i className="fa fa-arrow-circle-o-right" />
-                                            </button>
+                                            git</button>
                                             <a
                                                 className="btn btn-primary btn-group-justified hidden no-border-radius"
                                                 id="renew_create"
