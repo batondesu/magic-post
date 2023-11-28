@@ -1,11 +1,11 @@
 // pages/login.js
 import '/app/global.css'
 
-import React from "react";
+import React from 'react';
 import Link from "next/link";
 
-import { TiPhone } from "react-icons/ti";
-import { FaLock } from "react-icons/fa";
+import { TiPhone } from 'react-icons/ti';
+import { FaLock } from 'react-icons/fa';
 
 const Login = () => {
   return (

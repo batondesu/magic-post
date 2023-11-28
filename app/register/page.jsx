@@ -1,12 +1,12 @@
 // pages/register.js
 import '/app/global.css'
 
-import React from "react";
+import React from 'react';
 import Link from "next/link";
 
-import { TiPhone } from "react-icons/ti";
-import { FaLock } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import { TiPhone } from 'react-icons/ti';
+import { MdEmail } from 'react-icons/md';
+import { FaLock } from 'react-icons/fa';
 
 const Register = () => {
   return (
