@@ -3,14 +3,15 @@ import PageHome from "./home/page"
 
 import Receipt from "./receipt/page"
 
-// employee 
-import Port from "./employee/receiver/port"
-import Agent from "./employee/receiver/agent"
-import CreateOrder from "./employee/receiver/create-order"
+// employee - Porter(diem tap ket)
+import Port from "./employee/porter/port" // don hang tu diem giao dich chuyen den
+import Agent from "./employee/porter/agent" // don hang nhan ve tu diem tap ket khac
+import CreateOrder from "./employee/porter/create-order"
 
 // location Agent - giao dich
-import EmployeeListA from "./location/agent/employee-list"
+import EmployeeListA from "./location/agent/employee-list" 
 import OrderListA from "./location/agent/order-list"
+
 //Location Port - tap ket
 import EmployeeListB from "./location/port/employee-list"
 import OrderListB from "./location/port/order-list"
