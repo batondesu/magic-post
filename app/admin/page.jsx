@@ -4,9 +4,11 @@
 
 import React from "react";
 import Sidebar from "./sidebar";
-import User from "../../components/admin/user";
-import Content from "@/components/admin/content";
+import Account from "@/components/admin/account";
+import System from "@/components/admin/system";
+import Analytics from "@/components/admin/analytics";
 import { useSideBar } from "@/store/useSidebar";
+import { SYSTEM_ENTRYPOINTS } from "next/dist/shared/lib/constants";
 
 export default function AdminDashboard() {
   let { sideBar, setSideBar } = useSideBar();
@@ -15,8 +17,9 @@ export default function AdminDashboard() {
     <div className="flex">
       <Sidebar />
       <div>
-        {sideBar == "user" && <User />}
-        {sideBar == "content" && <Content />}
+        {sideBar == "system" && <System />}
+        {sideBar == "account" && <Account />}
+        {sideBar == "analytics" && <Analytics />}
       </div>
     </div>
   );
