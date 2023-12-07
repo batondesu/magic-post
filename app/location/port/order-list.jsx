@@ -6,6 +6,8 @@ import Link from "next/link";
 import './asset/css/bootstrap.min.css'
 import './asset/css/bootstrap-toggle.min.css'
 import './asset/css/app.css'
+import './asset/css/iziToast.min.css'
+import './asset/css/select2.min.css'
 
 import imageAsset from './asset/imgs/profile.jpg';
 import { FaBars, FaSearch, FaRegUserCircle, FaChevronCircleDown, FaTimes } from "react-icons/fa";
@@ -21,25 +23,25 @@ export default function OrderListB() {
                 <button class="res-sidebar-close-btn"><FaTimes /></button>
                 <div class="sidebar__inner">
                     <div class="sidebar__logo">
-                        <a href="/location" class="sidebar__main-logo">
+                        <a href="/location/port" class="sidebar__main-logo">
                         </a>
                     </div>
                     <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
                         <ul class="sidebar__menu">
                             <li class="sidebar-menu-item ">
-                                <a href="/location/dashboard" class="nav-link ">
+                                <a href="/location/port/dashboard" class="nav-link ">
                                     <IoHomeOutline size={22} class="mr-2" />
                                     <span class="menu-title">Dashboard</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item ">
-                                <a href="/courier/send" class="nav-link ">
+                                <a href="/location/port/employee-list" class="nav-link ">
                                     <LuUsers size={22} class="mr-2" />
                                     <span class="menu-title">Quản lý nhân viên</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item ">
-                                <a href="/location/courier/sent/queue" class="nav-link ">
+                                <a href="/location/port/order-list" class="nav-link ">
                                     <LiaFaxSolid size={22} class="mr-2" />
                                     <span class="menu-title">Thống kê hàng</span>
                                 </a>
@@ -72,19 +74,19 @@ export default function OrderListB() {
                                 </span>
                             </button>
                             <div class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                                <a href="/location/profile"
+                                <a href="/location/port/profile"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <FaRegUserCircle />
                                     <span class="dropdown-menu__caption">Thông tin</span>
                                 </a>
             
-                                <a href="/location/password"
+                                <a href="/location/port/password"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <IoKeyOutline />
                                     <span class="dropdown-menu__caption">Mật khẩu</span>
                                 </a>
             
-                                <a href="/location/logout"
+                                <a href="/location/port/logout"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <IoIosLogOut />
                                     <span class="dropdown-menu__caption">Đăng xuất</span>
@@ -230,24 +232,24 @@ export default function OrderListB() {
                                         </li>
                                         <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/courier/dispatch?page=2">2</a>
+                                            <a class="page-link" href="/location/port/order-list?page=2">2</a>
                                         </li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/courier/dispatch?page=3">3</a>
+                                            <a class="page-link" href="/location/port/order-list?page=3">3</a>
                                         </li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/courier/dispatch?page=4">4</a>
+                                            <a class="page-link" href="/location/port/order-list?page=4">4</a>
                                         </li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/courier/dispatch?page=5">5</a>
+                                            <a class="page-link" href="/location/port/order-list?page=5">5</a>
                                         </li>
                                         <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/courier/dispatch?page=13">14</a>
+                                            <a class="page-link" href="/location/port/order-list?page=13">14</a>
                                         </li>
-                                        <li class="page-item"><a class="page-link" href="/location/courier/dispatch?page=14">15</a></li>
+                                        <li class="page-item"><a class="page-link" href="/location/port/order-list?page=14">15</a></li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/courier/dispatch?page=2" rel="next" aria-label="Next &raquo;">
+                                            <a class="page-link" href="/location/port/order-list?page=2" rel="next" aria-label="Next &raquo;">
                                                 &rsaquo;
                                             </a>
                                         </li>

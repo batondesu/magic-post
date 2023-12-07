@@ -249,14 +249,11 @@ export default function CreateOrder() {
                                                                 <div class="col-md-3">
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control single-item-amount" placeholder="Nhập giá cả" name="items[0][amount]" required="" readonly=""/>
-                                                                        <span class="input-group-text">USD</span>
+                                                                        <span class="input-group-text">VND</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="border-line-area">
-                                                            <h6 class="border-line-title"></h6>
-                                                        </div>
+                                                        </div>  
                                                     </div>
                                                 </div>
                                             </div>
