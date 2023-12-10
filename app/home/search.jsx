@@ -11,7 +11,8 @@ export default function Search() {
                             <span className="text-blue-500"> BƯU GỬI </span>
                         </h2>
                         <p className="mb-8 text-blueGray-400 wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
-                            Mã bưu gửi (tra nhiều bill thêm dấu phẩy giữa các bill VD: EB125966888VN, EI125556888VN)
+                            Mã bưu gửi (tra nhiều bill thêm dấu phẩy giữa các bill 
+                            <br/> VD: EB125966888VN, EI125556888VN)
                         </p>
                         <div className="p-4 bg-white rounded-lg flex flex-wrap max-w-md mx-auto wow animate__animated animate__fadeInUp" data-wow-delay=".5s">
                             <div className="flex w-full md:w-2/3 px-3 mb-3 md:mb-0 md:mr-6 bg-blueGray-100 rounded">

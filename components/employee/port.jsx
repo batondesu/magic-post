@@ -1,56 +1,21 @@
-import Image from "next/image";
+// Diem tap ket
+
 import React from "react";
-import Link from "next/link";
+import Image from "next/image";
 
 // CSS
-import './asset/css/bootstrap.min.css'
 import './asset/css/bootstrap-toggle.min.css'
+import './asset/css/bootstrap.min.css'
 import './asset/css/app.css'
-import './asset/css/iziToast.min.css'
-import './asset/css/select2.min.css'
 
 import imageAsset from './asset/imgs/profile.jpg';
-import { FaBars, FaSearch, FaRegUserCircle, FaChevronCircleDown, FaTimes } from "react-icons/fa";
-import { IoKeyOutline, IoHomeOutline } from "react-icons/io5";
+import { FaBars, FaRegUserCircle, FaChevronCircleDown } from "react-icons/fa";
+import { IoKeyOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
-import { LiaFaxSolid  } from "react-icons/lia";
-import { LuUsers } from "react-icons/lu";
 
-export default function OrderListB() {
+export default function Port() {
     return (
         <div class="page-wrapper default-version">
-            <div class="sidebar bg--dark">
-                <button class="res-sidebar-close-btn"><FaTimes /></button>
-                <div class="sidebar__inner">
-                    <div class="sidebar__logo">
-                        <a href="/location/port" class="sidebar__main-logo">
-                        </a>
-                    </div>
-                    <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
-                        <ul class="sidebar__menu">
-                            <li class="sidebar-menu-item ">
-                                <a href="/location/port/dashboard" class="nav-link ">
-                                    <IoHomeOutline size={22} class="mr-2" />
-                                    <span class="menu-title">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item ">
-                                <a href="/location/port/employee-list" class="nav-link ">
-                                    <LuUsers size={22} class="mr-2" />
-                                    <span class="menu-title">Quản lý nhân viên</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item ">
-                                <a href="/location/port/order-list" class="nav-link ">
-                                    <LiaFaxSolid size={22} class="mr-2" />
-                                    <span class="menu-title">Thống kê hàng</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
             <nav class="navbar-wrapper bg--dark">
                 <div class="navbar__left">
                     <button type="button" class="res-sidebar-open-btn me-3"><FaBars /></button>
@@ -68,25 +33,25 @@ export default function OrderListB() {
                                         />
                                     </span>
                                     <span class="navbar-user__info">
-                                        <span class="navbar-user__name">Trưởng điểm tập kết</span>
+                                        <span class="navbar-user__name">Nhân viên</span>
                                     </span>
                                     <span class="icon"><FaChevronCircleDown /></span>
                                 </span>
                             </button>
                             <div class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                                <a href="/location/port/profile"
+                                <a href="/employee/profile"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <FaRegUserCircle />
                                     <span class="dropdown-menu__caption">Thông tin</span>
                                 </a>
             
-                                <a href="/location/port/password"
+                                <a href="/employee/password"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <IoKeyOutline />
                                     <span class="dropdown-menu__caption">Mật khẩu</span>
                                 </a>
             
-                                <a href="/location/port/logout"
+                                <a href="/employee/logout"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <IoIosLogOut />
                                     <span class="dropdown-menu__caption">Đăng xuất</span>
@@ -96,12 +61,11 @@ export default function OrderListB() {
                     </ul>
                 </div>
             </nav>
+
             <div class="body-wrapper">
                 <div class="bodywrapper__inner">
                     <div class="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                        <h6 class="page-title">Danh sách hàng đến, hàng đi</h6>
-                        <div class="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
-                        </div>
+                        <h6 class="page-title">Danh sách đơn hàng nhận về từ điểm tập kết khác</h6>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
@@ -119,12 +83,12 @@ export default function OrderListB() {
                                                 <input type="text" name="search" value="" class="form-control"/>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <label>Trạng thái đơn hàng</label>
+                                                <label>Trạng thái</label>
                                                 <select name="status" class="form-control">
                                                     <option value="">Tất cả</option>
-                                                    <option value="0">Đã giao</option>
-                                                    <option value="1">Chưa giao</option>
-                                                    <option value="1">Đã gửi</option>
+                                                    <option value="0">Đã gửi</option>
+                                                    <option value="1">Đã giao</option>
+                                                    <option value="1">Đã nhận</option>
                                                 </select>
                                             </div>
                                             <div class="flex-grow-1">
@@ -153,8 +117,9 @@ export default function OrderListB() {
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Nhân viên phụ trách</th>
-                                                    <th>Phân loại</th>
+                                                    <th>Chi nhánh gửi</th>
+                                                    <th>Chi nhánh nhận</th>
+                                                    <th>Thành tiền</th>
                                                     <th>Ngày tạo</th>
                                                     <th>Trạng thái đơn hàng</th>
                                                     <th>Trạng thái thanh toán</th>
@@ -164,62 +129,97 @@ export default function OrderListB() {
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <span>2423553252</span>
+                                                        <span>123456789</span>
                                                     </td>
                                                     <td>
-                                                        <span>Employee 1</span>
+                                                        <span>Văn Quán, Hà Đông</span>
                                                     </td>
                                                     <td>
-                                                        <span>Hàng đến</span> <br/>
+                                                        <span>Mai Dịch, Cầu Giấy</span> <br/>
                                                     </td>
                                                     <td>
-                                                        <span>20/11/2023</span>
+                                                        <span>2,000,000 VNĐ</span>
                                                     </td>
                                                     <td>
-                                                        <span class="badge badge--success">Đã giao</span>
+                                                        <span>28/11/2023</span>
                                                     </td>
                                                     <td>
-                                                        <span class="badge badge--success">Đã thanh toán</span>
+                                                        <span class="badge badge--danger">Đang giao</span>
                                                     </td>
                                                     <td>
-                                                        <a href="" title="" class="btn btn-sm btn-outline--primary mr-2">
-                                                            Chi tiết
+                                                        <span class="badge badge--danger">Đẫ thanh toán</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="" title="" class="btn btn-sm btn-outline--info mr-2">
+                                                            Sửa
                                                         </a>
                                                         <a href="" title="" class="btn btn-sm btn-outline--primary">
                                                             Xóa
                                                         </a>
                                                     </td>
                                                 </tr>
-
                                                 <tr>
-                                                    <td>
-                                                        <span>2423553252</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>Employee 2</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>Hàng đi</span> <br/>
-                                                    </td>
-                                                    <td>
-                                                        <span>20/11/2023</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge--warning">Chưa nhận</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge--warning">Chưa thanh toán</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="" title="" class="btn btn-sm btn-outline--primary mr-2">
-                                                            Chi tiết
-                                                        </a>
-                                                        <a href="" title="" class="btn btn-sm btn-outline--primary">
-                                                            Xóa
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                
+                                                <td>
+                                                    <span>123456789</span>
+                                                </td>
+                                                <td>
+                                                    <span>Văn Quán, Hà Đông</span>
+                                                </td>
+                                                <td>
+                                                    <span>Mai Dịch, Cầu Giấy</span> <br/>
+                                                </td>
+                                                <td>
+                                                    <span>2,000,000 VNĐ</span>
+                                                </td>
+                                                <td>
+                                                    <span>28/11/2023</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge--danger">Đang giao</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge--danger">Đẫ thanh toán</span>
+                                                </td>
+                                                <td>
+                                                    <a href="" title="" class="btn btn-sm btn-outline--info mr-2">
+                                                        Sửa
+                                                    </a>
+                                                    <a href="" title="" class="btn btn-sm btn-outline--primary">
+                                                        Xóa
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span>123456789</span>
+                                                </td>
+                                                <td>
+                                                    <span>Văn Quán, Hà Đông</span>
+                                                </td>
+                                                <td>
+                                                    <span>Mai Dịch, Cầu Giấy</span> <br/>
+                                                </td>
+                                                <td>
+                                                    <span>2,000,000 VNĐ</span>
+                                                </td>
+                                                <td>
+                                                    <span>28/11/2023</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge--danger">Đang giao</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge--danger">Đẫ thanh toán</span>
+                                                </td>
+                                                <td>
+                                                    <a href="" title="" class="btn btn-sm btn-outline--info mr-2">
+                                                        Sửa
+                                                    </a>
+                                                    <a href="" title="" class="btn btn-sm btn-outline--primary">
+                                                        Xóa
+                                                    </a>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -232,24 +232,24 @@ export default function OrderListB() {
                                         </li>
                                         <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/port/order-list?page=2">2</a>
+                                            <a class="page-link" href="/employee/courier/dispatch?page=2">2</a>
                                         </li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/port/order-list?page=3">3</a>
+                                            <a class="page-link" href="/employee/courier/dispatch?page=3">3</a>
                                         </li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/port/order-list?page=4">4</a>
+                                            <a class="page-link" href="/employee/courier/dispatch?page=4">4</a>
                                         </li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/port/order-list?page=5">5</a>
+                                            <a class="page-link" href="/employee/courier/dispatch?page=5">5</a>
                                         </li>
                                         <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/port/order-list?page=13">14</a>
+                                            <a class="page-link" href="/employee/courier/dispatch?page=13">14</a>
                                         </li>
-                                        <li class="page-item"><a class="page-link" href="/location/port/order-list?page=14">15</a></li>
+                                        <li class="page-item"><a class="page-link" href="/employee/courier/dispatch?page=14">15</a></li>
                                         <li class="page-item">
-                                            <a class="page-link" href="/location/port/order-list?page=2" rel="next" aria-label="Next &raquo;">
+                                            <a class="page-link" href="/employee/courier/dispatch?page=2" rel="next" aria-label="Next &raquo;">
                                                 &rsaquo;
                                             </a>
                                         </li>

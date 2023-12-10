@@ -3,7 +3,7 @@ import imageAsset15 from './assets/imgs/illustrations/eating.svg'
 import imageAsset16 from './assets/imgs/illustrations/space.svg'
 import imageAsset17 from './assets/imgs/illustrations/tasks.svg'
 import imageAsset18 from './assets/imgs/placeholders/act.jpg'
-
+import imageAssetNew from './assets/imgs/elements/news.jpg'
 
 export default function Work() {
     return (
@@ -100,7 +100,9 @@ export default function Work() {
                                     Hiện nay, Magic Post cung cấp rất nhiều cách để giúp bạn xác định được tiến độ giao nhận. 
                                     Trong đó phổ biến nhất là kiểm tra đơn hàng bưu điện thông qua website hoặc các nền tảng mạng xã hội khác. 
                                 </p>
-                                <a className="inline-block text-xs py-4 px-8 text-white font-semibold leading-none bg-blue-400 hover:bg-blue-500 rounded hover-up-2 wow animate__animated animate__fadeInUp" data-wow-delay=".5s" href="#">
+                                <Image src={imageAssetNew} width={650} className="mb-3"/>
+                                <a className="inline-block text-xs py-4 px-8 text-white font-semibold leading-none bg-blue-400 hover:bg-blue-500 rounded hover-up-2 wow animate__animated animate__fadeInUp" 
+                                    data-wow-delay=".5s" href="#">
                                     Đọc thêm
                                 </a>
                             </div>

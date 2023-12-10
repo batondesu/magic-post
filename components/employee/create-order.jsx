@@ -1,66 +1,40 @@
-import { FaBalanceScale, FaCalendar, FaMoneyBill, FaBars, FaChevronCircleDown, FaRegUserCircle } from "react-icons/fa";
-import { IoKeyOutline, IoHomeOutline } from "react-icons/io5";
-import { IoIosLogOut } from "react-icons/io";
-import imageAsset from './assets/imgs/profile.jpg';
-import { LiaAccessibleIcon, LiaShippingFastSolid } from "react-icons/lia";
-import { FaWpforms } from "react-icons/fa";
-import { LuCombine } from "react-icons/lu";
+import React, { useState } from "react";
+import {
+    Dropdown,
+    DropdownTrigger,
+    DropdownMenu,
+    DropdownSection,
+    DropdownItem
+} from "@nextui-org/react";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+import Image from "next/image";
+import imageAsset from './asset/imgs/profile.jpg';
 
 // CSS
-import './assets/css/bootstrap-toggle.min.css'
-import './assets/css/bootstrap.min.css'
-import './assets/css/app.css'
-import './assets/css/datepicker.min.css'
-import Image from "next/image";
+import './asset/css/bootstrap-toggle.min.css'
+import './asset/css/bootstrap.min.css'
+import './asset/css/app.css'
+
+import { FaBalanceScale, FaCalendar, FaMoneyBill, FaBars, FaChevronCircleDown, FaRegUserCircle } from "react-icons/fa";
+import { IoKeyOutline } from "react-icons/io5";
+import { IoIosLogOut } from "react-icons/io";
+
 
 export default function CreateOrder() {
+    const [date, setDate] = useState(new Date());
     return (
         <div class="page-wrapper default-version">
-            <div class="sidebar bg--dark">
-                <div class="sidebar__inner">
-                    <div class="sidebar__logo">
-                        <a href="/employee" class="sidebar__main-logo">
-                        </a>
-                    </div>
-                    <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
-                    <ul class="sidebar__menu">
-                        <li class="sidebar-menu-item ">
-                            <a href="/employee/dashboard" class="nav-link ">
-                                <IoHomeOutline size={22} class="mr-2" />
-                                <span class="menu-title">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-menu-item ">
-                            <a href="/courier/send" class="nav-link ">
-                                <LiaShippingFastSolid size={22} class="mr-2" />
-                                <span class="menu-title">Từ điểm giao dịch</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-menu-item ">
-                            <a href="/employee/courier/sent/queue" class="nav-link ">
-                                <LuCombine size={22} class="mr-2" />
-                                <span class="menu-title">Từ điểm tập kết</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-menu-item ">
-                            <a href="/employee/courier/sent/queue" class="nav-link ">
-                                <FaWpforms size={22} class="mr-2" />
-                                <span class="menu-title">Từ điểm tập kết</span>
-                            </a>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-            </div>
-
             <nav class="navbar-wrapper bg--dark">
                 <div class="navbar__left">
                     <button type="button" class="res-sidebar-open-btn me-3"><FaBars /></button>
                 </div>
                 <div class="navbar__right">
-                    <ul class="navbar__action-list">
-                        <li class="dropdown">
-                            <button type="button" class="" data-bs-toggle="dropdown" data-display="static"
+                    <Dropdown class="navbar__action-list">
+                        <DropdownTrigger class="dropdown">
+                            <button type="button" class="" data-toggle="dropdown" data-display="static"
                                 aria-haspopup="true" aria-expanded="false">
                                 <span class="navbar-user">
                                     <span class="navbar-user__thumb">
@@ -75,34 +49,36 @@ export default function CreateOrder() {
                                     <span class="icon"><FaChevronCircleDown /></span>
                                 </span>
                             </button>
-                            <div class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                                <a href="/employee/profile"
+                        </DropdownTrigger>    
+                        <DropdownMenu class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
+                            <DropdownSection>
+                                <DropdownItem href="/employee/profile"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <FaRegUserCircle />
                                     <span class="dropdown-menu__caption">Thông tin</span>
-                                </a>
-            
-                                <a href="/employee/password"
+                                </DropdownItem>
+                                
+                                <DropdownItem href="/employee/password"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <IoKeyOutline />
-                                    <span class="dropdown-menu__caption">Mật khẩu k</span>
-                                </a>
+                                    <span class="dropdown-menu__caption">Mật khẩu</span>
+                                </DropdownItem>
             
-                                <a href="/employee/logout"
+                                <DropdownItem href="/employee/logout"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <IoIosLogOut />
                                     <span class="dropdown-menu__caption">Đăng xuất</span>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
+                                </DropdownItem>
+                            </DropdownSection>
+                        </DropdownMenu>
+                    </Dropdown>
                 </div>
             </nav>
 
             <div class="body-wrapper">
                 <div class="bodywrapper__inner">
                     <div class="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                        <h6 class="page-title">Đơn hàng mới</h6>
+                        <h6 class="page-title">Tạo đơn hàng</h6>
                         <div class="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
                         </div>
                     </div>
@@ -116,9 +92,7 @@ export default function CreateOrder() {
                                             <div class="col-6 form-group">
                                                 <label for="">Ngày tạo đơn</label>
                                                 <div class="input-group">
-                                                    <input name="estimate_date" value="" type="text"
-                                                        autocomplete="off" class="form-control date" placeholder="DD/MM/YY"
-                                                        required />
+                                                    <DatePicker selected={date} onChange={(date) => setDate(date)} />
                                                     <span class="input-group-text"><FaCalendar /></span>
                                                 </div>
                                             </div>

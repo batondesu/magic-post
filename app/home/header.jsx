@@ -6,10 +6,10 @@ import Link from 'next/link';
 export default function Header() {
     return (
         <>
-            <header className="bg-transparent sticky-bar mt-4">
+            <header className="bg-transparent mt-4">
                 <div className="container bg-transparent">
                     <nav className="bg-transparent flex justify-between items-center py-3">
-                        <a className="text-3xl font-semibold leading-none" href="index.html">
+                        <a className="text-3xl font-semibold leading-none" href="/home">
                             <Image className="h-10" src={imageAsset1} alt="" />
                         </a>
                         <ul className="hidden lg:flex lg:items-center lg:w-auto lg:space-x-12">
