@@ -22,7 +22,6 @@ import { FaBalanceScale, FaCalendar, FaMoneyBill, FaBars, FaChevronCircleDown, F
 import { IoKeyOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
 
-
 export default function CreateOrder() {
     const [date, setDate] = useState(new Date());
     return (

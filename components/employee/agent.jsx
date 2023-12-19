@@ -13,6 +13,7 @@ import imageAsset from './asset/imgs/profile.jpg';
 import { FaBars, FaRegUserCircle, FaChevronCircleDown } from "react-icons/fa";
 import { IoKeyOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "@nextui-org/react";
 
 export default function Agent() {
     return (
@@ -22,9 +23,9 @@ export default function Agent() {
                     <button type="button" class="res-sidebar-open-btn me-3"><FaBars /></button>
                 </div>
                 <div class="navbar__right">
-                    <ul class="navbar__action-list">
-                        <li class="dropdown">
-                            <button type="button" class="" data-bs-toggle="dropdown" data-display="static"
+                    <Dropdown class="navbar__action-list">
+                        <DropdownTrigger class="dropdown">
+                            <button type="button" class="" data-toggle="dropdown" data-display="static"
                                 aria-haspopup="true" aria-expanded="false">
                                 <span class="navbar-user">
                                     <span class="navbar-user__thumb">
@@ -39,27 +40,29 @@ export default function Agent() {
                                     <span class="icon"><FaChevronCircleDown /></span>
                                 </span>
                             </button>
-                            <div class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                                <a href="/employee/profile"
+                        </DropdownTrigger>    
+                        <DropdownMenu class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
+                            <DropdownSection>
+                                <DropdownItem href="/employee/profile"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <FaRegUserCircle />
                                     <span class="dropdown-menu__caption">Thông tin</span>
-                                </a>
-            
-                                <a href="/employee/password"
+                                </DropdownItem>
+                                
+                                <DropdownItem href="/employee/password"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <IoKeyOutline />
                                     <span class="dropdown-menu__caption">Mật khẩu</span>
-                                </a>
+                                </DropdownItem>
             
-                                <a href="/employee/logout"
+                                <DropdownItem href="/employee/logout"
                                     class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <IoIosLogOut />
                                     <span class="dropdown-menu__caption">Đăng xuất</span>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
+                                </DropdownItem>
+                            </DropdownSection>
+                        </DropdownMenu>
+                    </Dropdown>
                 </div>
             </nav>
 

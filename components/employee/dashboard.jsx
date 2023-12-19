@@ -7,12 +7,11 @@ import './asset/css/bootstrap.min.css'
 import './asset/css/app.css'
 
 import imageAsset from './asset/imgs/profile.jpg';
-import { FaBars, FaChevronCircleDown, FaDollyFlatbed, FaMoneyBillWave, FaUserCheck, FaUniversity, FaHourglassStart, FaDolly, FaAccessibleIcon   } from "react-icons/fa";
+import { FaBars, FaChevronCircleDown, FaDollyFlatbed, FaMoneyBillWave, FaUserCheck, FaUniversity, FaHourglassStart, FaDolly, FaAccessibleIcon, FaRegUserCircle } from "react-icons/fa";
 import {FaListCheck} from "react-icons/fa6";
 import { IoKeyOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
-import { PiUserCircle  } from "react-icons/pi";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "@nextui-org/react";
 
 export default function DashBoard() {
     return (
@@ -21,52 +20,47 @@ export default function DashBoard() {
                 <div className="navbar__left">
                     <FaBars className="res-sidebar-open-btn me-3" />
                 </div>
-                <div className="navbar__right">
-                    <ul className="navbar__action-list">
-                        <Dropdown>
-                            <DropdownTrigger>
-                                <Button>
-                                    <span className="navbar-user">
-                                        <span className="navbar-user__thumb">
-                                            <Image
-                                                src={imageAsset}
-                                                alt="image" 
-                                            />
-                                        </span>
-                                        <span className="navbar-user__info">
-                                            <span className="navbar-user__name">Trưởng điểm</span>
-                                        </span>
-                                        <span className="icon"><FaChevronCircleDown /></span>
+                <div class="navbar__right">
+                    <Dropdown class="navbar__action-list">
+                        <DropdownTrigger class="dropdown">
+                            <button type="button" class="" data-toggle="dropdown" data-display="static"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="navbar-user">
+                                    <span class="navbar-user__thumb">
+                                        <Image
+                                            src={imageAsset}
+                                            alt="image" 
+                                        />
                                     </span>
-                                </Button>
-                            </DropdownTrigger>
-                            <DropdownMenu className="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                                <DropdownItem href="/location/info"
-                                    className="dropdown-menu__item px-3 py-2">
-                                        <div className="d-flex align-items-center">
-                                            <PiUserCircle className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
-                                            <span className="dropdown-menu__caption text-default-300 ">Thông tin</span>
-                                        </div>
+                                    <span class="navbar-user__info">
+                                        <span class="navbar-user__name">Nhân viên</span>
+                                    </span>
+                                    <span class="icon"><FaChevronCircleDown /></span>
+                                </span>
+                            </button>
+                        </DropdownTrigger>    
+                        <DropdownMenu class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
+                            <DropdownSection>
+                                <DropdownItem href="/employee/profile"
+                                    class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                    <FaRegUserCircle />
+                                    <span class="dropdown-menu__caption">Thông tin</span>
+                                </DropdownItem>
+                                
+                                <DropdownItem href="/employee/password"
+                                    class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                    <IoKeyOutline />
+                                    <span class="dropdown-menu__caption">Mật khẩu</span>
                                 </DropdownItem>
             
-                                <DropdownItem href="/location/password"
-                                    className="dropdown-menu__item px-3 py-2">
-                                    <div className="d-flex align-items-center">
-                                        <IoKeyOutline className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
-                                        <span className="dropdown-menu__caption text-default-300">Mật khẩu</span>
-                                    </div>
+                                <DropdownItem href="/employee/logout"
+                                    class="dropdown-menu__item d-flex align-items-center px-3 py-2">
+                                    <IoIosLogOut />
+                                    <span class="dropdown-menu__caption">Đăng xuất</span>
                                 </DropdownItem>
-            
-                                <DropdownItem href="/home"
-                                    className="dropdown-menu__item d-flex px-3 py-2">
-                                    <div className="d-flex align-items-center">
-                                        <IoIosLogOut className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
-                                        <span className="dropdown-menu__caption text-default-300">Đăng xuất</span>
-                                    </div>
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </Dropdown>
-                    </ul>
+                            </DropdownSection>
+                        </DropdownMenu>
+                    </Dropdown>
                 </div>
             </nav>  
 
