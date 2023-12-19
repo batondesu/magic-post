@@ -1,27 +1,21 @@
-// Diem tap ket
-<<<<<<< HEAD:components/employee/port.jsx
-
-import React from "react";
-import Image from "next/image";
-=======
 'use client'
 import Image from "next/image";
-import React , {useState} from "react";
 import Link from "next/link";
->>>>>>> origin/trantoan:app/employee/porter/port.jsx
+import React from "react";
 
 // CSS
-import './asset/css/bootstrap-toggle.min.css'
 import './asset/css/bootstrap.min.css'
+import './asset/css/bootstrap-toggle.min.css'
 import './asset/css/app.css'
 
 import imageAsset from './asset/imgs/profile.jpg';
-import { FaBars, FaRegUserCircle, FaChevronCircleDown } from "react-icons/fa";
-import { IoKeyOutline } from "react-icons/io5";
+import { FaBars, FaSearch, FaRegUserCircle, FaChevronCircleDown, FaTimes } from "react-icons/fa";
+import { IoKeyOutline, IoHomeOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
+import { LiaFaxSolid  } from "react-icons/lia";
+import { LuUsers } from "react-icons/lu";
 
-export default function Port() {
-
+export default function EmployeeListB() {
     const [selectedOption1, setSelectedOption1] = useState('3');
     const [selectedOption2, setSelectedOption2] = useState('2');
 
@@ -40,43 +34,32 @@ export default function Port() {
     };
 
     return (
-<<<<<<< HEAD:components/employee/port.jsx
-        <div class="page-wrapper default-version">
-            <nav class="navbar-wrapper bg--dark">
-                <div class="navbar__left">
-                    <button type="button" class="res-sidebar-open-btn me-3"><FaBars /></button>
-=======
         <section className="page-wrapper default-version">
             <div className="sidebar bg--dark">
+                <button className="res-sidebar-close-btn"><FaTimes /></button>
                 <div className="sidebar__inner">
                     <div className="sidebar__logo">
-                        <a href="/employee" className="sidebar__main-logo">
+                        <a href="/location" className="sidebar__main-logo">
                         </a>
                     </div>
                     <div className="sidebar__menu-wrapper" id="sidebar__menuWrapper">
                         <ul className="sidebar__menu">
                             <li className="sidebar-menu-item ">
-                                <a href="/employee/dashboard" className="nav-link ">
+                                <a href="/location/dashboard" className="nav-link ">
                                     <IoHomeOutline size={22} className="mr-2" />
                                     <span className="menu-title">Dashboard</span>
                                 </a>
                             </li>
                             <li className="sidebar-menu-item ">
                                 <a href="/courier/send" className="nav-link ">
-                                    <LiaShippingFastSolid size={22} className="mr-2" />
-                                    <span className="menu-title">Từ điểm giao dịch</span>
+                                    <LuUsers size={22} className="mr-2" />
+                                    <span className="menu-title">Quản lý nhân viên</span>
                                 </a>
                             </li>
                             <li className="sidebar-menu-item ">
-                                <a href="/employee/courier/sent/queue" className="nav-link ">
-                                    <LuCombine size={22} className="mr-2" />
-                                    <span className="menu-title">Từ điểm tập kết</span>
-                                </a>
-                            </li>
-                            <li className="sidebar-menu-item ">
-                                <a href="/employee/courier/sent/queue" className="nav-link ">
-                                    <FaWpforms size={22} className="mr-2" />
-                                    <span className="menu-title">Tạo đơn hàng</span>
+                                <a href="/location/courier/sent/queue" className="nav-link ">
+                                    <LiaFaxSolid size={22} className="mr-2" />
+                                    <span className="menu-title">Thống kê hàng</span>
                                 </a>
                             </li>
                         </ul>
@@ -87,7 +70,6 @@ export default function Port() {
             <nav className="navbar-wrapper bg--dark">
                 <div className="navbar__left">
                     <button type="button" className="res-sidebar-open-btn me-3"><FaBars /></button>
->>>>>>> origin/trantoan:app/employee/porter/port.jsx
                 </div>
                 <div className="navbar__right">
                     <ul className="navbar__action-list">
@@ -102,25 +84,25 @@ export default function Port() {
                                         />
                                     </span>
                                     <span className="navbar-user__info">
-                                        <span className="navbar-user__name">Nhân viên</span>
+                                        <span className="navbar-user__name">Trưởng điểm tập kết</span>
                                     </span>
                                     <span className="icon"><FaChevronCircleDown /></span>
                                 </span>
                             </button>
                             <div className="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                                <a href="/employee/profile"
+                                <a href="/location/profile"
                                     className="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <FaRegUserCircle />
                                     <span className="dropdown-menu__caption">Thông tin</span>
                                 </a>
             
-                                <a href="/employee/password"
+                                <a href="/location/password"
                                     className="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <IoKeyOutline />
                                     <span className="dropdown-menu__caption">Mật khẩu</span>
                                 </a>
             
-                                <a href="/employee/logout"
+                                <a href="/location/logout"
                                     className="dropdown-menu__item d-flex align-items-center px-3 py-2">
                                     <IoIosLogOut />
                                     <span className="dropdown-menu__caption">Đăng xuất</span>
@@ -130,11 +112,12 @@ export default function Port() {
                     </ul>
                 </div>
             </nav>
-
             <div className="body-wrapper">
                 <div className="bodywrapper__inner">
                     <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                        <h6 className="page-title">Danh sách đơn hàng nhận về từ điểm tập kết khác</h6>
+                        <h6 className="page-title">Danh sách nhân viên</h6>
+                        <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
+                        </div>
                     </div>
                     <div className="row">
                         <div className="col-lg-12">
@@ -152,21 +135,21 @@ export default function Port() {
                                                 <input type="text" name="search" value="" className="form-control"/>
                                             </div>
                                             <div className="flex-grow-1">
-                                                <label>Trạng thái
+                                                <label>Chi nhánh
                                                     <select name="status" className="form-control" value={selectedOption1} onChange={handleOption1Change}>
                                                         <option value="3">Tất cả</option>
-                                                        <option value="0">Đã gửi</option>
-                                                        <option value="1">Đã giao</option>
-                                                        <option value="2">Đã nhận</option>
+                                                        <option value="0">Hà Đông</option>
+                                                        <option value="1">Cầu Giấy</option>
+                                                        <option value="2">Hoàng Mai</option>
                                                     </select>
                                                 </label>
                                             </div>
                                             <div className="flex-grow-1">
-                                                <label>Trạng thái thanh toán
+                                                <label>Trạng thái tài khoản
                                                     <select value={selectedOption2} name="payment_status" className="form-control" onChange={handleOption2Change}>
-                                                        <option value="2" >Tất cả</option>
-                                                        <option value="1">Đã thanh toán</option>
-                                                        <option value="0">Chưa thanh toán</option>
+                                                        <option value="2">Tất cả</option>
+                                                        <option value="1">Đã kích hoạt</option>
+                                                        <option value="0">Chưa kích hoạt</option>
                                                     </select>
                                                 </label>
                                             </div>
@@ -188,41 +171,37 @@ export default function Port() {
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Chi nhánh gửi</th>
-                                                    <th>Chi nhánh nhận</th>
-                                                    <th>Thành tiền</th>
+                                                    <th>Tài khoản</th>
+                                                    <th>Mật khẩu</th>
+                                                    <th>Chi nhánh</th>
                                                     <th>Ngày tạo</th>
-                                                    <th>Trạng thái đơn hàng</th>
-                                                    <th>Trạng thái thanh toán</th>
+                                                    <th>Trạng thái tài khoản</th>
                                                     <th>Thao tác</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <span>123456789</span>
+                                                        <span>2423553252</span>
                                                     </td>
                                                     <td>
-                                                        <span>Văn Quán, Hà Đông</span>
+                                                        <span>employee1@gmail.com</span>
                                                     </td>
                                                     <td>
-                                                        <span>Mai Dịch, Cầu Giấy</span> <br/>
+                                                        <span>###########</span> <br/>
                                                     </td>
                                                     <td>
-                                                        <span>2,000,000 VNĐ</span>
+                                                        <span>Cầu Giấy</span>
                                                     </td>
                                                     <td>
-                                                        <span>28/11/2023</span>
+                                                        <span>20/11/2023</span>
                                                     </td>
                                                     <td>
-                                                        <span className="badge badge--danger">Đang giao</span>
-                                                    </td>
-                                                    <td>
-                                                        <span className="badge badge--danger">Đẫ thanh toán</span>
+                                                        <span className="badge badge--success">Đã kích hoạt</span>
                                                     </td>
                                                     <td>
                                                         <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
-                                                            Sửa
+                                                            Đăng nhập
                                                         </a>
                                                         <a href="" title="" className="btn btn-sm btn-outline--primary">
                                                             Xóa
@@ -230,67 +209,33 @@ export default function Port() {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                <td>
-                                                    <span>123456789</span>
-                                                </td>
-                                                <td>
-                                                    <span>Văn Quán, Hà Đông</span>
-                                                </td>
-                                                <td>
-                                                    <span>Mai Dịch, Cầu Giấy</span> <br/>
-                                                </td>
-                                                <td>
-                                                    <span>2,000,000 VNĐ</span>
-                                                </td>
-                                                <td>
-                                                    <span>28/11/2023</span>
-                                                </td>
-                                                <td>
-                                                    <span className="badge badge--danger">Đang giao</span>
-                                                </td>
-                                                <td>
-                                                    <span className="badge badge--danger">Đẫ thanh toán</span>
-                                                </td>
-                                                <td>
-                                                    <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
-                                                        Sửa
-                                                    </a>
-                                                    <a href="" title="" className="btn btn-sm btn-outline--primary">
-                                                        Xóa
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span>123456789</span>
-                                                </td>
-                                                <td>
-                                                    <span>Văn Quán, Hà Đông</span>
-                                                </td>
-                                                <td>
-                                                    <span>Mai Dịch, Cầu Giấy</span> <br/>
-                                                </td>
-                                                <td>
-                                                    <span>2,000,000 VNĐ</span>
-                                                </td>
-                                                <td>
-                                                    <span>28/11/2023</span>
-                                                </td>
-                                                <td>
-                                                    <span className="badge badge--danger">Đang giao</span>
-                                                </td>
-                                                <td>
-                                                    <span className="badge badge--danger">Đẫ thanh toán</span>
-                                                </td>
-                                                <td>
-                                                    <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
-                                                        Sửa
-                                                    </a>
-                                                    <a href="" title="" className="btn btn-sm btn-outline--primary">
-                                                        Xóa
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                                    <td>
+                                                        <span>2423553252</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>employee1@gmail.com</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>###########</span> <br/>
+                                                    </td>
+                                                    <td>
+                                                        <span>Cầu Giấy</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>20/11/2023</span>
+                                                    </td>
+                                                    <td>
+                                                        <span className="badge badge--warning">Chưa kích hoạt</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
+                                                            Đăng nhập
+                                                        </a>
+                                                        <a href="" title="" className="btn btn-sm btn-outline--primary">
+                                                            Xóa
+                                                        </a>
+                                                    </td>
+                                                </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -303,24 +248,24 @@ export default function Port() {
                                         </li>
                                         <li className="page-item active" aria-current="page"><span className="page-link">1</span></li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/employee/courier/dispatch?page=2">2</a>
+                                            <a className="page-link" href="/location/courier/dispatch?page=2">2</a>
                                         </li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/employee/courier/dispatch?page=3">3</a>
+                                            <a className="page-link" href="/location/courier/dispatch?page=3">3</a>
                                         </li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/employee/courier/dispatch?page=4">4</a>
+                                            <a className="page-link" href="/location/courier/dispatch?page=4">4</a>
                                         </li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/employee/courier/dispatch?page=5">5</a>
+                                            <a className="page-link" href="/location/courier/dispatch?page=5">5</a>
                                         </li>
                                         <li className="page-item disabled" aria-disabled="true"><span className="page-link">...</span></li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/employee/courier/dispatch?page=13">14</a>
+                                            <a className="page-link" href="/location/courier/dispatch?page=13">14</a>
                                         </li>
-                                        <li className="page-item"><a className="page-link" href="/employee/courier/dispatch?page=14">15</a></li>
+                                        <li className="page-item"><a className="page-link" href="/location/courier/dispatch?page=14">15</a></li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/employee/courier/dispatch?page=2" rel="next" aria-label="Next &raquo;">
+                                            <a className="page-link" href="/location/courier/dispatch?page=2" rel="next" aria-label="Next &raquo;">
                                                 &rsaquo;
                                             </a>
                                         </li>
