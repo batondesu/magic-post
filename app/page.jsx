@@ -10,7 +10,11 @@ import EmployeePort from "./employee/porter/page"
 export default function Home() {
   return (
     <>
+<<<<<<< HEAD
       <EmployeePort /> 
+=======
+      <OrderListB />
+>>>>>>> origin/trantoan
     </>
   )
 }
