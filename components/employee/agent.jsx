@@ -10,10 +10,11 @@ import './asset/css/bootstrap.min.css'
 import './asset/css/app.css'
 
 import imageAsset from './asset/imgs/profile.jpg';
-import { FaBars, FaRegUserCircle, FaChevronCircleDown } from "react-icons/fa";
+import { FaBars, FaChevronCircleDown } from "react-icons/fa";
 import { IoKeyOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "@nextui-org/react";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
+import { PiUserCircle  } from "react-icons/pi";
 
 export default function Agent() {
 
@@ -35,141 +36,64 @@ export default function Agent() {
     };
 
     return (
-<<<<<<< HEAD:components/employee/agent.jsx
-        <div class="page-wrapper default-version">
-            <nav class="navbar-wrapper bg--dark">
-                <div class="navbar__left">
-                    <button type="button" class="res-sidebar-open-btn me-3"><FaBars /></button>
-=======
         <section classNameName="page-wrapper default-version">
-            <div className="sidebar bg--dark">
-                <div className="sidebar__inner">
-                    <div className="sidebar__logo">
-                        <a href="/employee" className="sidebar__main-logo">
-                        </a>
-                    </div>
-                    <div className="sidebar__menu-wrapper" id="sidebar__menuWrapper">
-                        <ul className="sidebar__menu">
-                            <li className="sidebar-menu-item ">
-                                <a href="/employee/dashboard" className="nav-link ">
-                                    <IoHomeOutline size={22} className="mr-2" />
-                                    <span className="menu-title">Dashboard</span>
-                                </a>
-                            </li>
-                            <li className="sidebar-menu-item ">
-                                <a href="/courier/send" className="nav-link ">
-                                    <LiaShippingFastSolid size={22} className="mr-2" />
-                                    <span className="menu-title">Từ điểm giao dịch</span>
-                                </a>
-                            </li>
-                            <li className="sidebar-menu-item ">
-                                <a href="/employee/courier/sent/queue" className="nav-link ">
-                                    <LuCombine size={22} className="mr-2" />
-                                    <span className="menu-title">Từ điểm tập kết</span>
-                                </a>
-                            </li>
-                            <li className="sidebar-menu-item ">
-                                <a href="/employee/courier/sent/queue" className="nav-link ">
-                                    <FaWpforms size={22} className="mr-2" />
-                                    <span className="menu-title">Tạo đơn hàng</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
             <nav className="navbar-wrapper bg--dark">
                 <div className="navbar__left">
                     <button type="button" className="res-sidebar-open-btn me-3"><FaBars /></button>
->>>>>>> origin/trantoan:app/employee/porter/agent.jsx
                 </div>
-<<<<<<< HEAD
-                <div class="navbar__right">
-                    <Dropdown class="navbar__action-list">
-                        <DropdownTrigger class="dropdown">
-                            <button type="button" class="" data-toggle="dropdown" data-display="static"
-=======
+
                 <div className="navbar__right">
                     <ul className="navbar__action-list">
-                        <li className="dropdown">
-                            <button type="button" className="" data-bs-toggle="dropdown" data-display="static"
->>>>>>> bcb49bb33b6de9e7f96c370b4d2d16e944082777
-                                aria-haspopup="true" aria-expanded="false">
-                                <span className="navbar-user">
-                                    <span className="navbar-user__thumb">
-                                        <Image
-                                            src={imageAsset}
-                                            alt="image" 
-                                        />
+                        <Dropdown>
+                            <DropdownTrigger>
+                                <Button>
+                                    <span className="navbar-user">
+                                        <span className="navbar-user__thumb">
+                                            <Image
+                                                src={imageAsset}
+                                                alt="image" 
+                                            />
+                                        </span>
+                                        <span className="navbar-user__info">
+                                            <span className="navbar-user__name">Nhân viên</span>
+                                        </span>
+                                        <span className="icon"><FaChevronCircleDown /></span>
                                     </span>
-                                    <span className="navbar-user__info">
-                                        <span className="navbar-user__name">Nhân viên</span>
-                                    </span>
-                                    <span className="icon"><FaChevronCircleDown /></span>
-                                </span>
-                            </button>
-<<<<<<< HEAD
-                        </DropdownTrigger>    
-                        <DropdownMenu class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                            <DropdownSection>
-                                <DropdownItem href="/employee/profile"
-                                    class="dropdown-menu__item d-flex align-items-center px-3 py-2">
-                                    <FaRegUserCircle />
-                                    <span class="dropdown-menu__caption">Thông tin</span>
-                                </DropdownItem>
-                                
-                                <DropdownItem href="/employee/password"
-                                    class="dropdown-menu__item d-flex align-items-center px-3 py-2">
-                                    <IoKeyOutline />
-                                    <span class="dropdown-menu__caption">Mật khẩu</span>
+                                </Button>
+                            </DropdownTrigger>
+                            <DropdownMenu className="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
+                                <DropdownItem href="/location/info"
+                                    className="dropdown-menu__item px-3 py-2">
+                                        <div className="d-flex align-items-center">
+                                            <PiUserCircle className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
+                                            <span className="dropdown-menu__caption text-default-300 ">Thông tin</span>
+                                        </div>
                                 </DropdownItem>
             
-                                <DropdownItem href="/employee/logout"
-                                    class="dropdown-menu__item d-flex align-items-center px-3 py-2">
-                                    <IoIosLogOut />
-                                    <span class="dropdown-menu__caption">Đăng xuất</span>
+                                <DropdownItem href="/location/password"
+                                    className="dropdown-menu__item px-3 py-2">
+                                    <div className="d-flex align-items-center">
+                                        <IoKeyOutline className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
+                                        <span className="dropdown-menu__caption text-default-300">Mật khẩu</span>
+                                    </div>
                                 </DropdownItem>
-                            </DropdownSection>
-                        </DropdownMenu>
-                    </Dropdown>
-=======
-                            <div className="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                                <a href="/employee/profile"
-                                    className="dropdown-menu__item d-flex align-items-center px-3 py-2">
-                                    <FaRegUserCircle />
-                                    <span className="dropdown-menu__caption">Thông tin</span>
-                                </a>
             
-                                <a href="/employee/password"
-                                    className="dropdown-menu__item d-flex align-items-center px-3 py-2">
-                                    <IoKeyOutline />
-                                    <span className="dropdown-menu__caption">Mật khẩu</span>
-                                </a>
-            
-                                <a href="/employee/logout"
-                                    className="dropdown-menu__item d-flex align-items-center px-3 py-2">
-                                    <IoIosLogOut />
-                                    <span className="dropdown-menu__caption">Đăng xuất</span>
-                                </a>
-                            </div>
-                        </li>
+                                <DropdownItem href="/home"
+                                    className="dropdown-menu__item d-flex px-3 py-2">
+                                    <div className="d-flex align-items-center">
+                                        <IoIosLogOut className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
+                                        <span className="dropdown-menu__caption text-default-300">Đăng xuất</span>
+                                    </div>
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </Dropdown>
                     </ul>
->>>>>>> bcb49bb33b6de9e7f96c370b4d2d16e944082777
                 </div>
             </nav>
-
-<<<<<<< HEAD:components/employee/agent.jsx
             <div class="body-wrapper">
                 <div class="bodywrapper__inner">
                     <div class="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
                         <h6 class="page-title">Danh sách đơn hàng Chuyển đến từ điểm giao dịch</h6>
-=======
-            <div className="body-wrapper">
-                <div className="bodywrapper__inner">
-                    <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                        <h6 className="page-title">Danh sách đơn hàng chuyển đến từ điểm giao dịch</h6>
->>>>>>> origin/trantoan:app/employee/porter/agent.jsx
                     </div>
                     <div className="row">
                         <div className="col-lg-12">
@@ -367,10 +291,6 @@ export default function Agent() {
                     </div>            
                 </div>            
             </div>            
-<<<<<<< HEAD:components/employee/agent.jsx
-        </div>      
-=======
-        </section>
->>>>>>> origin/trantoan:app/employee/porter/agent.jsx
+        </section>      
     )
 }
