@@ -4,8 +4,14 @@ import "./bootstrap.min.css";
 import "./custom.210823.css";
 
 export default function Record() {
+
+    const handleSubmit = (event) => {
+        // Xử lý logic khi biểu mẫu được gửi đi
+        event.preventDefault();
+    };
+
     return (
-        <div className="container body" style={{ width: 1400 }}>
+        <section className="container body" style={{ width: 1400 }}>
             <div className="right_col" role="main" style={{ padding: 20 }}>
                 <div className="page-title">
                     <div className="title_left text-success">
@@ -18,12 +24,13 @@ export default function Record() {
                 <div className="clearfix" />
                 <form
                     method="POST"
-                    action="https://bill.ems.com.vn/rc/orders/create"
+                    action=""
                     acceptCharset="UTF-8"
                     id="frmCreate"
                     className="form-horizontal form-label-left input_mask"
                     noValidate=""
                     siq_id="autopick_7122"
+                    onSubmit={handleSubmit}
                 >
                     <input
                         name="_token"
@@ -385,9 +392,10 @@ export default function Record() {
                                                 autoComplete="off"
                                                 tabIndex={-1}
                                                 style={{ display: "none" }}
+                                                defaultValue={'1'}
                                             >
-                                                <option value={2}>Tài liệu (Không thu hộ)</option>
-                                                <option value={1}>Hàng Hoá</option>
+                                                <option value="2">Tài liệu (Không thu hộ)</option>
+                                                <option value="1">Hàng Hoá</option>
                                             </select>
                                         </div>
                                         <div className="form-group text-info">
@@ -625,7 +633,7 @@ export default function Record() {
                     </div>
                 </form>
             </div>
-        </div>
+        </section>
 
         // <div>
         //     Home lol

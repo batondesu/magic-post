@@ -1,6 +1,7 @@
 import './css/bootstrap.min.css'
 import './css/bootstrap-toggle.min.css'
 import './css/app.css'
+import { FaSearch } from "react-icons/fa";
 
 export default function User() {
     return (
@@ -13,7 +14,7 @@ export default function User() {
                             <div class="input-group w-auto flex-fill">
                                 <input type="search" name="search" class="form-control bg--white" placeholder="Search here..." value=""/>
                                 <button class="btn btn--primary" type="submit">
-                                    Search
+                                    <FaSearch />
                                 </button>
                             </div>    
                         </form>

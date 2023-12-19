@@ -1,8 +1,12 @@
 // pages/register.js
 import '/app/global.css'
 
-import React from "react";
+import React from 'react';
 import Link from "next/link";
+
+import { TiPhone } from 'react-icons/ti';
+import { MdEmail } from 'react-icons/md';
+import { FaLock } from 'react-icons/fa';
 
 const Register = () => {
   return (
@@ -17,13 +21,19 @@ const Register = () => {
             >
               Số điện thoại
             </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              className="w-full border-2 border-blue-400 rounded-md p-2 focus:outline-none focus:border-blue-600 mt-6"
-              placeholder="Nhập số điện thoại của bạn"
-            />
+            <div>
+              <TiPhone
+                size={30}
+                className="absolute top-[30px] left-1 text-gray-600"
+              />
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                className="w-full pl-8 border-2 border-blue-400 rounded-md p-2 focus:outline-none focus:border-blue-600 mt-6"
+                placeholder="Nhập số điện thoại của bạn"
+              />
+            </div>
           </div>
           <div className="relative">
             <label
@@ -32,13 +42,20 @@ const Register = () => {
             >
               Email
             </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="w-full border-2 border-blue-400 rounded-md p-2 focus:outline-none focus:border-blue-600 mt-6"
-              placeholder="Nhập địa chỉ email của bạn"
-            />
+            <div>
+              <MdEmail
+                size={25}
+                className="absolute top-[32px] left-[5px] text-gray-600"
+              />
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="w-full pl-8 border-2 border-blue-400 rounded-md p-2 focus:outline-none focus:border-blue-600 mt-6"
+                placeholder="Nhập địa chỉ email của bạn"
+              />
+            </div>
           </div>
           <div className="relative">
             <label
@@ -54,7 +71,7 @@ const Register = () => {
               className="w-full border-2 border-blue-400 rounded-md p-2 focus:outline-none focus:border-blue-600 mt-6"
             />
           </div>
-          <div>
+          <div className="pl-2">
             <p className="text-xs text-gray-600 mb-1">Giới tính</p>
             <div className="flex items-center">
               <input
@@ -86,13 +103,19 @@ const Register = () => {
             >
               Mật khẩu
             </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="w-full border-2 border-blue-400 rounded-md p-2 focus:outline-none focus:border-blue-600 mt-6"
-              placeholder="Nhập mật khẩu của bạn"
-            />
+            <div>
+              <FaLock
+                size={25}
+                className="absolute top-8 left-1 text-gray-500"
+              />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                className="w-full pl-8 border-2 border-blue-400 rounded-md p-2 focus:outline-none focus:border-blue-600 mt-6"
+                placeholder="Nhập mật khẩu của bạn"
+              />
+            </div>
           </div>
           <div className="relative">
             <label
@@ -101,13 +124,19 @@ const Register = () => {
             >
               Xác nhận mật khẩu
             </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              className="w-full border-2 border-blue-400 rounded-md p-2 focus:outline-none focus:border-blue-600 mt-6"
-              placeholder="Xác nhận lại mật khẩu"
-            />
+            <div>
+              <FaLock
+                size={25}
+                className="absolute top-8 left-1 text-gray-500"
+              />
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                className="w-full pl-8 border-2 border-blue-400 rounded-md p-2 focus:outline-none focus:border-blue-600 mt-6"
+                placeholder="Xác nhận lại mật khẩu"
+              />
+            </div>
           </div>
 
           <button
