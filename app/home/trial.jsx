@@ -55,24 +55,24 @@ export default function Trial() {
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
-                        <div className="hover-up-5 pt-16 pb-8 px-4 text-center text-white bg-blue-500 rounded shadow wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
-                            <Image className="h-20 mb-6 mx-auto" src={imageAsset20} alt="" />
+                        <div className="hover-up-5 pt-16 pb-8 px-4 text-center bg-white rounded shadow wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
+                            <Image className="h-20 mb-6 mx-auto" src={imageAsset19} alt="" />
                             <h3 className="mb-2 text-4xl font-bold font-heading">Hà Nội</h3>
                             <div className="flex flex-col items-center mb-8">
-                                <ul>
-                                    <li className="flex items-center mb-3">
+                                <ul className="text-blueGray-400">
+                                    <li className="flex mb-3">
                                         <svg className="w-6 h-6 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
                                         <span>Số 1 Tân Xuân, Xuân Đỉnh, Bắc Từ Liêm</span>
                                     </li>
-                                    <li className="flex items-center mb-3">
+                                    <li className="flex mb-3">
                                         <svg className="w-6 h-6 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
                                         <span>1900545433</span>
                                     </li>
-                                    <li className="flex items-center mb-3">
+                                    <li className="flex mb-3">
                                         <svg className="w-6 h-6 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
@@ -87,8 +87,8 @@ export default function Trial() {
                                 </ul>
                             </div>
                             <div>
-                                <a className="block sm:inline-block py-4 px-6 mb-4 sm:mb-0 sm:mr-3 text-xs text-blue-500 font-semibold leading-none bg-white hover:bg-blueGray-50 rounded" href="#">Tóm tắt</a>
-                                <a className="block sm:inline-block py-4 px-6 text-xs font-semibold leading-none border border-blue-500 hover:border-blue-400 rounded" href="#">Chi tiết</a>
+                                <a className="block sm:inline-block py-4 px-6 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-blue-400 hover:bg-blue-500 rounded" href="#">Tóm tắt</a>
+                                <a className="block sm:inline-block py-4 px-6 text-xs text-blueGray-500 hover:text-blueGray-600 text-center font-semibold leading-none bg-white border border-blueGray-200 hover:border-blueGray-300 rounded" href="#">Chi tiết</a>
                             </div>
                         </div>
                     </div>

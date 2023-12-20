@@ -1,27 +1,19 @@
 // Home
 import PageHome from "./home/page"
-
+import CreateOrder from "@/components/employee/create-order"
 import Receipt from "./receipt/page"
+import LocationAgent from "./location/agent/page"
+import EmployeePort from "./employee/porter/page"
+import OrderList from "@/components/location/order-list"
+import DashBoard from "@/components/employee/dashboard"
 
-// employee - Porter(diem tap ket)
-import Port from "./employee/porter/port" // don hang tu diem giao dich chuyen den
-import Agent from "./employee/porter/agent" // don hang nhan ve tu diem tap ket khac
-import CreateOrder from "./employee/porter/create-order"
 
-// location Agent - giao dich
-import EmployeeListA from "./location/agent/employee-list" 
-import OrderListA from "./location/agent/order-list"
-
-//Location Port - tap ket
-import EmployeeListB from "./location/port/employee-list"
-import OrderListB from "./location/port/order-list"
-
-// import User from "./user/page"
+// import User from "./user/page" 
 
 export default function Home() {
   return (
     <>
-      <CreateOrder />
+      <LocationAgent  />
     </>
   )
 }

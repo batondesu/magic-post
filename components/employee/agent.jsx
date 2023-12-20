@@ -1,28 +1,25 @@
-// Diem tap ket
+// Diem giao dich
 'use client'
 import Image from "next/image";
 import React , {useState} from "react";
 import Link from "next/link";
 
 // CSS
-import './assets/css/bootstrap-toggle.min.css'
-import './assets/css/bootstrap.min.css'
-import './assets/css/app.css'
-import './assets/css/datepicker.min.css'
-import './assets/css/iziToast.min.css'
+import './asset/css/bootstrap-toggle.min.css'
+import './asset/css/bootstrap.min.css'
+import './asset/css/app.css'
 
-import imageAsset from './assets/imgs/profile.jpg';
-import { FaBars, FaRegUserCircle, FaChevronCircleDown } from "react-icons/fa";
-import { IoKeyOutline, IoHomeOutline } from "react-icons/io5";
+import imageAsset from './asset/imgs/profile.jpg';
+import { FaBars, FaChevronCircleDown } from "react-icons/fa";
+import { IoKeyOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
-import { LiaShippingFastSolid } from "react-icons/lia";
-import { FaWpforms } from "react-icons/fa";
-import { LuCombine } from "react-icons/lu";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
+import { PiUserCircle  } from "react-icons/pi";
 
-export default function Port() {
+export default function Agent() {
 
-    const [selectedOption1, setSelectedOption1] = useState('3');
-    const [selectedOption2, setSelectedOption2] = useState('2');
+    const [selectedOption1, setSelectedOption1] = useState('0');
+    const [selectedOption2, setSelectedOption2] = useState('0');
 
     const handleOption1Change = (event) => {
         setSelectedOption1(event.target.value);
@@ -39,94 +36,64 @@ export default function Port() {
     };
 
     return (
-        <section className="page-wrapper default-version">
-            <div className="sidebar bg--dark">
-                <div className="sidebar__inner">
-                    <div className="sidebar__logo">
-                        <a href="/employee" className="sidebar__main-logo">
-                        </a>
-                    </div>
-                    <div className="sidebar__menu-wrapper" id="sidebar__menuWrapper">
-                        <ul className="sidebar__menu">
-                            <li className="sidebar-menu-item ">
-                                <a href="/employee/dashboard" className="nav-link ">
-                                    <IoHomeOutline size={22} className="mr-2" />
-                                    <span className="menu-title">Dashboard</span>
-                                </a>
-                            </li>
-                            <li className="sidebar-menu-item ">
-                                <a href="/courier/send" className="nav-link ">
-                                    <LiaShippingFastSolid size={22} className="mr-2" />
-                                    <span className="menu-title">Từ điểm giao dịch</span>
-                                </a>
-                            </li>
-                            <li className="sidebar-menu-item ">
-                                <a href="/employee/courier/sent/queue" className="nav-link ">
-                                    <LuCombine size={22} className="mr-2" />
-                                    <span className="menu-title">Từ điểm tập kết</span>
-                                </a>
-                            </li>
-                            <li className="sidebar-menu-item ">
-                                <a href="/employee/courier/sent/queue" className="nav-link ">
-                                    <FaWpforms size={22} className="mr-2" />
-                                    <span className="menu-title">Tạo đơn hàng</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
+        <section classNameName="page-wrapper default-version">
             <nav className="navbar-wrapper bg--dark">
                 <div className="navbar__left">
                     <button type="button" className="res-sidebar-open-btn me-3"><FaBars /></button>
                 </div>
+
                 <div className="navbar__right">
                     <ul className="navbar__action-list">
-                        <li className="dropdown">
-                            <button type="button" className="" data-bs-toggle="dropdown" data-display="static"
-                                aria-haspopup="true" aria-expanded="false">
-                                <span className="navbar-user">
-                                    <span className="navbar-user__thumb">
-                                        <Image
-                                            src={imageAsset}
-                                            alt="image" 
-                                        />
+                        <Dropdown>
+                            <DropdownTrigger>
+                                <Button>
+                                    <span className="navbar-user">
+                                        <span className="navbar-user__thumb">
+                                            <Image
+                                                src={imageAsset}
+                                                alt="image" 
+                                            />
+                                        </span>
+                                        <span className="navbar-user__info">
+                                            <span className="navbar-user__name">Nhân viên</span>
+                                        </span>
+                                        <span className="icon"><FaChevronCircleDown /></span>
                                     </span>
-                                    <span className="navbar-user__info">
-                                        <span className="navbar-user__name">Nhân viên</span>
-                                    </span>
-                                    <span className="icon"><FaChevronCircleDown /></span>
-                                </span>
-                            </button>
-                            <div className="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                                <a href="/employee/profile"
-                                    className="dropdown-menu__item d-flex align-items-center px-3 py-2">
-                                    <FaRegUserCircle />
-                                    <span className="dropdown-menu__caption">Thông tin</span>
-                                </a>
+                                </Button>
+                            </DropdownTrigger>
+                            <DropdownMenu className="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
+                                <DropdownItem href="/location/info"
+                                    className="dropdown-menu__item px-3 py-2">
+                                        <div className="d-flex align-items-center">
+                                            <PiUserCircle className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
+                                            <span className="dropdown-menu__caption text-default-300 ">Thông tin</span>
+                                        </div>
+                                </DropdownItem>
             
-                                <a href="/employee/password"
-                                    className="dropdown-menu__item d-flex align-items-center px-3 py-2">
-                                    <IoKeyOutline />
-                                    <span className="dropdown-menu__caption">Mật khẩu</span>
-                                </a>
+                                <DropdownItem href="/location/password"
+                                    className="dropdown-menu__item px-3 py-2">
+                                    <div className="d-flex align-items-center">
+                                        <IoKeyOutline className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
+                                        <span className="dropdown-menu__caption text-default-300">Mật khẩu</span>
+                                    </div>
+                                </DropdownItem>
             
-                                <a href="/employee/logout"
-                                    className="dropdown-menu__item d-flex align-items-center px-3 py-2">
-                                    <IoIosLogOut />
-                                    <span className="dropdown-menu__caption">Đăng xuất</span>
-                                </a>
-                            </div>
-                        </li>
+                                <DropdownItem href="/home"
+                                    className="dropdown-menu__item d-flex px-3 py-2">
+                                    <div className="d-flex align-items-center">
+                                        <IoIosLogOut className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
+                                        <span className="dropdown-menu__caption text-default-300">Đăng xuất</span>
+                                    </div>
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </Dropdown>
                     </ul>
                 </div>
             </nav>
-
             <div className="body-wrapper">
                 <div className="bodywrapper__inner">
                     <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                        <h6 className="page-title">Danh sách đơn hàng nhận về từ điểm tập kết khác</h6>
+                        <h6 className="page-title">Danh sách đơn hàng Chuyển đến từ điểm giao dịch</h6>
                     </div>
                     <div className="row">
                         <div className="col-lg-12">
@@ -141,30 +108,30 @@ export default function Port() {
                                         <div className="d-flex flex-wrap gap-4">
                                             <div className="flex-grow-1">
                                                 <label>Tìm kiếm</label>
-                                                <input type="text" name="search" value="" className="form-control"/>
+                                                <input type="text" name="search" className="form-control"/>
                                             </div>
                                             <div className="flex-grow-1">
                                                 <label>Trạng thái
                                                     <select name="status" className="form-control" value={selectedOption1} onChange={handleOption1Change}>
-                                                        <option value="3">Tất cả</option>
-                                                        <option value="0">Đã gửi</option>
-                                                        <option value="1">Đã giao</option>
-                                                        <option value="2">Đã nhận</option>
+                                                        <option value="0">Tất cả</option>
+                                                        <option value="1">Đã gửi</option>
+                                                        <option value="2">Đã giao</option>
+                                                        <option value="3">Đã nhận</option>
                                                     </select>
                                                 </label>
                                             </div>
                                             <div className="flex-grow-1">
                                                 <label>Trạng thái thanh toán
                                                     <select value={selectedOption2} name="payment_status" className="form-control" onChange={handleOption2Change}>
-                                                        <option value="2" >Tất cả</option>
+                                                        <option value="0">Tất cả</option>
                                                         <option value="1">Đã thanh toán</option>
-                                                        <option value="0">Chưa thanh toán</option>
+                                                        <option value="2">Chưa thanh toán</option>
                                                     </select>
                                                 </label>
                                             </div>
                                             <div className="flex-grow-1">
                                                 <label>Ngày tạo</label>
-                                                <input name="date" type="text" className="date form-control" placeholder="DD/MM/YY" autoComplete="off" value=""/>
+                                                <input name="date" type="text" className="date form-control" placeholder="DD/MM/YY" autoComplete="off" />
                                             </div>
                                             <div className="flex-grow-1 align-self-end">
                                                 <button type="submit" className="btn btn--primary w-100 h-45"><i className="fas fa-filter"></i> Tìm</button>
@@ -324,6 +291,6 @@ export default function Port() {
                     </div>            
                 </div>            
             </div>            
-        </section>
+        </section>      
     )
 }
