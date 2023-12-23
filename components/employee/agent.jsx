@@ -134,7 +134,7 @@ export default function Agent() {
                                                 <input name="date" type="text" className="date form-control" placeholder="DD/MM/YY" autoComplete="off" />
                                             </div>
                                             <div className="flex-grow-1 align-self-end">
-                                                <button type="submit" className="btn btn--primary w-100 h-45"><i className="fas fa-filter"></i> Tìm</button>
+                                                <button type="submit" className="btn btn--primary w-100 h-45">Tìm</button>
                                             </div>
                                         </div>
                                     </form>

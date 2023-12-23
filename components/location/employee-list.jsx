@@ -112,7 +112,7 @@ export default function EmployeeList() {
                                                 <input name="date" type="text" className="date form-control" placeholder="DD/MM/YY" autoComplete="off" />
                                             </div>
                                             <div className="flex-grow-1 align-self-end">
-                                                <button className="btn btn--primary w-100 h-45"><i className="fas fa-filter"></i> Tìm</button>
+                                                <button className="btn btn--primary w-100 h-45">Tìm</button>
                                             </div>
                                         </div>
                                     </form>

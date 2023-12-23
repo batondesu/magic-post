@@ -1,38 +1,72 @@
-import React from "react";
-
+import react from "react";
 import { useSideBar } from "@/store/useSidebar";
+import Image from "next/image";
 
-const Sidebar = () => {
+// CSS
+import './asset/css/bootstrap.min.css'
+import './asset/css/bootstrap-toggle.min.css'
+import './asset/css/app.css'
+
+import imageAsset1 from './asset/imgs/logo.png'
+import {FaTimes, FaWpforms,  } from "react-icons/fa";
+import { IoHomeOutline } from "react-icons/io5";
+import { LiaShippingFastSolid  } from "react-icons/lia";
+import { LuUsers } from "react-icons/lu";
+
+export default function SideBar() {
   let { sideBar, setSideBar } = useSideBar();
-
   return (
-    <div className="bg-gray-800 text-white h-screen w-1/5 flex flex-col">
-      <div className="py-4 px-6 border-b border-gray-700">
-        <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-      </div>
-      <nav className="flex-1">
-        <ul className="my-4">
-          <li
-            onClick={() => setSideBar("user")}
-            className="py-2 cursor-pointer"
-          >
-            <div className="text-gray-300 hover:text-white">
-              Quản lý người dùng
-            </div>
-          </li>
+            <div className="sidebar bg--dark">
+                <button className="res-sidebar-close-btn"><FaTimes /></button>
+                <div className="sidebar__inner">
+                    <div className="sidebar__logo">
+                        <a href="/location" className="sidebar__main-logo">
+                            <Image src={imageAsset1} />
+                        </a>
+                    </div>
+                    <div className="sidebar__menu-wrapper" id="sidebar__menuWrapper">
+                        <ul className="sidebar__menu">
+                            <li className="sidebar-menu-item nav-link"
+                                onClick={() => setSideBar("dashboard")}
+                            >
+                                <div className="d-flex align-items-center">
+                                    <IoHomeOutline size={22} className="mr-2" />
+                                    <span className="menu-title">Dashboard</span>
+                                </div>
+                            </li>
 
-          <li
-            onClick={() => setSideBar("content")}
-            className="py-2 cursor-pointer"
-          >
-            <div className="text-gray-300 hover:text-white">
-              Quản lý nội dung
+                            <li 
+                                className="sidebar-menu-item nav-link "
+                                onClick={() => setSideBar("location-list")}
+                            >
+                                <div className="d-flex align-items-center">
+                                    <LiaShippingFastSolid size={22} className="mr-2" />
+                                    <span className="menu-title">Quản lý hệ thống</span>
+                                </div>
+                            </li>
+            
+                            <li
+                                className="sidebar-menu-item nav-link"
+                                onClick={() => setSideBar("account-list")}
+                            >
+                                <div className="d-flex align-items-center">
+                                    <LuUsers size={22} className="mr-2" />
+                                    <span className="menu-title">Quản lý tài khoản</span>
+                                </div>
+                            </li>       
+                            
+                            <li
+                                className="sidebar-menu-item nav-link"
+                                onClick={() => setSideBar("order-list")}
+                            >
+                                <div className="d-flex align-items-center">
+                                    <FaWpforms size={22} className="mr-2" />
+                                    <span className="menu-title">Thống kê hàng</span>
+                                </div>
+                            </li> 
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  );
-};
-
-export default Sidebar;
+    )
+}

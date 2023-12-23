@@ -13,7 +13,7 @@ import DashBoard from "@/components/employee/dashboard"
 export default function Home() {
   return (
     <>
-      <LocationAgent  />
+      <EmployeePort  />
     </>
   )
 }

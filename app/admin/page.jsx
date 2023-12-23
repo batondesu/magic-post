@@ -1,23 +1,25 @@
-// pages/admin/dashboard.js
-
-"use client";
+'use client';
 
 import React from "react";
-import Sidebar from "./sidebar";
-import User from "../../components/admin/user";
-import Content from "@/components/admin/content";
+import SideBar from "./sidebar";
+import DashBoard from "@/components/admin/dashboard";
+import LocationList from "@/components/admin/location-list";
+import AccountList from "@/components/admin/account-list";
+import OrderList from "@/components/admin/order-list";
 import { useSideBar } from "@/store/useSidebar";
 
-export default function AdminDashboard() {
+export default function Admin() {
   let { sideBar, setSideBar } = useSideBar();
 
   return (
-    <div className="flex">
-      <Sidebar />
-      <div>
-        {sideBar == "user" && <User />}
-        {sideBar == "content" && <Content />}
+    <section>
+      <SideBar />
+      <div className="page-wrapper default-version">
+        {sideBar == "dashboard" && <DashBoard />}
+        {sideBar == "location-list" && <LocationList />}
+        {sideBar == "account-list" && <AccountList />}
+        {sideBar == "order-list" && <OrderList />}
       </div>
-    </div>
+    </section>
   );
 }
