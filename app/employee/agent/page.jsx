@@ -8,7 +8,7 @@ import Reciving from "../../../components/employee/reciving";
 import CreateOrder from "../../../components/employee/create-order"
 import { useSideBar } from "@/store/useSidebar";
 
-export default function EmployeePort() {
+export default function EmployeeAgent() {
   let { sideBar, setSideBar } = useSideBar();
 
   return (
@@ -16,8 +16,8 @@ export default function EmployeePort() {
       <SideBar />
       <div className="page-wrapper default-version">
         {sideBar == "dashboard" && <DashBoard />}
-        {sideBar == "agent" && <Sending />}
-        {sideBar == "port" && <Reciving />}
+        {sideBar == "sending" && <Sending />}
+        {sideBar == "reciving" && <Reciving />}
         {sideBar == "create-order" && <CreateOrder />}
       </div>
     </section>

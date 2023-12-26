@@ -6,14 +6,14 @@ import LocationAgent from "./location/agent/page"
 import EmployeePort from "./employee/porter/page"
 import OrderList from "@/components/location/order-list"
 import DashBoard from "@/components/employee/dashboard"
-
+import EmployeeAgent from "./employee/agent/page"
 
 // import User from "./user/page" 
 
 export default function Home() {
   return (
     <>
-      <EmployeePort  />
+      <EmployeeAgent  />
     </>
   )
 }

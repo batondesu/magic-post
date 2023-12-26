@@ -24,7 +24,7 @@ export default function SideBar() {
                     </div>
                     <div className="sidebar__menu-wrapper" id="sidebar__menuWrapper">
                         <ul className="sidebar__menu">
-                            <li className="sidebar-menu-item"
+                            <li className="sidebar-menu-item cursor-pointer" 
                                 onClick={() => setSideBar("dashboard")}
                             >
                                 <IoHomeOutline size={22} className="mr-2" />
@@ -32,7 +32,7 @@ export default function SideBar() {
                             </li>
                             
                             <li
-                                className="sidebar-menu-item"
+                                className="sidebar-menu-item cursor-pointer"
                                 onClick={() => setSideBar("employee-list")}
                             >
                                 <LuUsers size={22} className="mr-2" />
@@ -40,7 +40,7 @@ export default function SideBar() {
                             </li>
             
                             <li
-                                className="sidebar-menu-item"
+                                className="sidebar-menu-item cursor-pointer"
                                 onClick={() => setSideBar("order-list")}
                             >
                                 <LiaFaxSolid size={22} className="mr-2" />

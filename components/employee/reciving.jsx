@@ -1,10 +1,8 @@
-// Diem tap ket
-
+// Diem giao dich
 'use client'
 import Image from "next/image";
 import React , {useState} from "react";
 import Link from "next/link";
-
 
 // CSS
 import './asset/css/bootstrap-toggle.min.css'
@@ -15,10 +13,10 @@ import imageAsset from './asset/imgs/profile.jpg';
 import { FaBars, FaChevronCircleDown } from "react-icons/fa";
 import { IoKeyOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
-import { PiUserCircle  } from "react-icons/pi";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
+import { PiUserCircle  } from "react-icons/pi";
 
-export default function Port() {
+export default function Sending() {
 
     const [selectedOption1, setSelectedOption1] = useState('0');
     const [selectedOption2, setSelectedOption2] = useState('0');
@@ -38,11 +36,12 @@ export default function Port() {
     };
 
     return (
-        <section className="page-wrapper default-version">
+        <section classNameName="page-wrapper default-version">
             <nav className="navbar-wrapper bg--dark">
                 <div className="navbar__left">
                     <button type="button" className="res-sidebar-open-btn me-3"><FaBars /></button>
                 </div>
+
                 <div className="navbar__right">
                     <ul className="navbar__action-list">
                         <Dropdown>
@@ -89,13 +88,12 @@ export default function Port() {
                             </DropdownMenu>
                         </Dropdown>
                     </ul>
-                </div>    
+                </div>
             </nav>
-
             <div className="body-wrapper">
                 <div className="bodywrapper__inner">
                     <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                        <h6 className="page-title">Danh sách đơn hàng nhận về từ điểm tập kết khác</h6>
+                        <h6 className="page-title">Danh sách đơn hàng Chuyển đi</h6>
                     </div>
                     <div className="row">
                         <div className="col-lg-12">
@@ -122,19 +120,8 @@ export default function Port() {
                                                     </select>
                                                 </label>
                                             </div>
-                                            <div className="flex-grow-1">
-                                                <label>Trạng thái thanh toán
-                                                    <select value={selectedOption2} name="payment_status" className="form-control" onChange={handleOption2Change}>
-                                                        <option value="0" >Tất cả</option>
-                                                        <option value="1">Đã thanh toán</option>
-                                                        <option value="2">Chưa thanh toán</option>
-                                                    </select>
-                                                </label>
-                                            </div>
-                                            <div className="flex-grow-1">
-                                                <label>Ngày tạo</label>
-                                                <input name="date" type="text" className="date form-control" placeholder="DD/MM/YY" autoComplete="off" />
-                                            </div>
+                                            
+                                            
                                             <div className="flex-grow-1 align-self-end">
                                                 <button type="submit" className="btn btn--primary w-100 h-45">Tìm</button>
                                             </div>
@@ -148,13 +135,11 @@ export default function Port() {
                                         <table className="table table--light style--two">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
+                                                    <th>Mã bưu phẩm</th>
                                                     <th>Chi nhánh gửi</th>
                                                     <th>Chi nhánh nhận</th>
-                                                    <th>Thành tiền</th>
                                                     <th>Ngày tạo</th>
                                                     <th>Trạng thái đơn hàng</th>
-                                                    <th>Trạng thái thanh toán</th>
                                                     <th>Thao tác</th>
                                                 </tr>
                                             </thead>
@@ -169,25 +154,19 @@ export default function Port() {
                                                     <td>
                                                         <span>Mai Dịch, Cầu Giấy</span> <br/>
                                                     </td>
-                                                    <td>
-                                                        <span>2,000,000 VNĐ</span>
-                                                    </td>
+                                                   
                                                     <td>
                                                         <span>28/11/2023</span>
                                                     </td>
                                                     <td>
                                                         <span className="badge badge--danger">Đang giao</span>
                                                     </td>
-                                                    <td>
-                                                        <span className="badge badge--danger">Đẫ thanh toán</span>
-                                                    </td>
+                                                    
                                                     <td>
                                                         <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
-                                                            Sửa
+                                                            Chỉnh sửa
                                                         </a>
-                                                        <a href="" title="" className="btn btn-sm btn-outline--primary">
-                                                            Xóa
-                                                        </a>
+                                                       
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -200,25 +179,19 @@ export default function Port() {
                                                 <td>
                                                     <span>Mai Dịch, Cầu Giấy</span> <br/>
                                                 </td>
-                                                <td>
-                                                    <span>2,000,000 VNĐ</span>
-                                                </td>
+                                              
                                                 <td>
                                                     <span>28/11/2023</span>
                                                 </td>
                                                 <td>
                                                     <span className="badge badge--danger">Đang giao</span>
                                                 </td>
-                                                <td>
-                                                    <span className="badge badge--danger">Đẫ thanh toán</span>
-                                                </td>
+                                               
                                                 <td>
                                                     <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
-                                                        Sửa
+                                                        Chỉnh sửa
                                                     </a>
-                                                    <a href="" title="" className="btn btn-sm btn-outline--primary">
-                                                        Xóa
-                                                    </a>
+                                                  
                                                 </td>
                                             </tr>
                                             <tr>
@@ -231,25 +204,19 @@ export default function Port() {
                                                 <td>
                                                     <span>Mai Dịch, Cầu Giấy</span> <br/>
                                                 </td>
-                                                <td>
-                                                    <span>2,000,000 VNĐ</span>
-                                                </td>
+                                             
                                                 <td>
                                                     <span>28/11/2023</span>
                                                 </td>
                                                 <td>
                                                     <span className="badge badge--danger">Đang giao</span>
                                                 </td>
-                                                <td>
-                                                    <span className="badge badge--danger">Đẫ thanh toán</span>
-                                                </td>
+                                                
                                                 <td>
                                                     <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
-                                                        Sửa
+                                                        Chỉnh sửa
                                                     </a>
-                                                    <a href="" title="" className="btn btn-sm btn-outline--primary">
-                                                        Xóa
-                                                    </a>
+                                                    
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -293,6 +260,6 @@ export default function Port() {
                     </div>            
                 </div>            
             </div>            
-        </section>
+        </section>      
     )
 }

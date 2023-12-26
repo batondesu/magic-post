@@ -37,17 +37,17 @@ export default function SideBar() {
 
                             <li 
                                 className="sidebar-menu-item nav-link "
-                                onClick={() => setSideBar("agent")}
+                                onClick={() => setSideBar("sending")}
                             >
                                 <div className="d-flex align-items-center cursor-pointer">
                                     <LiaShippingFastSolid size={22} className="mr-2" />
-                                    <span className="menu-title">Đơn hàng chuyển đến</span>
+                                    <span className="menu-title">Đơn hàng chuyển đi</span>
                                 </div>
                             </li>
             
                             <li
                                 className="sidebar-menu-item nav-link"
-                                onClick={() => setSideBar("port")}
+                                onClick={() => setSideBar("reciving")}
                             >
                                 <div className="d-flex align-items-center cursor-pointer">
                                     <LuCombine size={22} className="mr-2" />

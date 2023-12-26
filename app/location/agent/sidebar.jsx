@@ -29,7 +29,7 @@ export default function SideBar() {
                             <li className="sidebar-menu-item nav-link"
                                 onClick={() => setSideBar("dashboard")}
                             >
-                                <div className="d-flex align-items-center">
+                                <div className="d-flex align-items-center cursor-pointer">
                                     <IoHomeOutline size={22} className="mr-2" />
                                     <span className="menu-title">Dashboard</span>
                                 </div>
@@ -39,7 +39,7 @@ export default function SideBar() {
                                 className="sidebar-menu-item nav-link "
                                 onClick={() => setSideBar("employee-list")}
                             >
-                                <div className="d-flex align-items-center">
+                                <div className="d-flex align-items-center cursor-pointer">
                                     <LuUsers size={22} className="mr-2" />
                                     <span className="menu-title">Quản lý nhân viên</span>
                                 </div>
@@ -49,7 +49,7 @@ export default function SideBar() {
                                 className="sidebar-menu-item nav-link"
                                 onClick={() => setSideBar("order-list")}
                             >
-                                <div className="d-flex align-items-center">
+                                <div className="d-flex align-items-center cursor-pointer">
                                     <LiaFaxSolid size={22} className="mr-2" />
                                     <span className="menu-title">Thống kê hàng</span>
                                 </div>
