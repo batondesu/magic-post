@@ -12,6 +12,8 @@ import {FaTimes, FaWpforms } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
 import { LiaShippingFastSolid  } from "react-icons/lia";
 import { LuCombine } from "react-icons/lu";
+import { PiNotePencilBold } from "react-icons/pi";
+
 
 export default function SideBar() {
   let { sideBar, setSideBar } = useSideBar();
@@ -61,9 +63,20 @@ export default function SideBar() {
                             >
                                 <div className="d-flex align-items-center cursor-pointer">
                                     <FaWpforms size={22} className="mr-2" />
-                                    <span className="menu-title">Tạo đơn hàng</span>
+                                    <span className="menu-title">Tạo đơn hàng vận chuyển</span>
                                 </div>
                             </li> 
+
+                            <li
+                                className="sidebar-menu-item nav-link"
+                                onClick={() => setSideBar("record")}
+                            >
+                                <div className="d-flex align-items-center cursor-pointer">
+                                    <PiNotePencilBold size={22} className="mr-2" />
+                                    <span className="menu-title">Ghi nhận đơn hàng</span>
+                                </div>
+                            </li> 
+
                         </ul>
                     </div>
                 </div>

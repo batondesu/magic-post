@@ -16,7 +16,7 @@ import { IoIosLogOut } from "react-icons/io";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 import { PiUserCircle  } from "react-icons/pi";
 
-export default function Sending() {
+export default function Reciving() {
 
     const [selectedOption1, setSelectedOption1] = useState('0');
     const [selectedOption2, setSelectedOption2] = useState('0');

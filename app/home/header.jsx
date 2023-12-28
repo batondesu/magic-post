@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Header() {
     return (
         <>
-            <header className="bg-transparent mt-4">
+            <header className="bg-transparent">
                 <div className="container bg-transparent">
                     <nav className="bg-transparent flex justify-between items-center py-3">
                         <a className="text-3xl font-semibold leading-none" href="/home">

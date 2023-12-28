@@ -6,6 +6,7 @@ import DashBoard from "../../../components/employee/dashboard"
 import Sending from "../../../components/employee/sending";
 import Reciving from "../../../components/employee/reciving";
 import CreateOrder from "../../../components/employee/create-order"
+import Record from "@/components/employee/record";
 import { useSideBar } from "@/store/useSidebar";
 
 export default function EmployeeAgent() {
@@ -19,6 +20,7 @@ export default function EmployeeAgent() {
         {sideBar == "sending" && <Sending />}
         {sideBar == "reciving" && <Reciving />}
         {sideBar == "create-order" && <CreateOrder />}
+        {sideBar == "record" && <Record />}
       </div>
     </section>
   );

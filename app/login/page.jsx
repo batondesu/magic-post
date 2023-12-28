@@ -7,9 +7,11 @@ import Link from "next/link";
 import { TiPhone } from 'react-icons/ti';
 import { FaLock } from 'react-icons/fa';
 
+import routesInit from '@/BE/routes/indexRoute';
+
 const Login = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
       <div className="bg-white p-8 rounded shadow-md w-1/3">
         <h2 className="text-2xl font-bold mb-4 text-center">Đăng nhập</h2>
         <form className="space-y-4">
@@ -68,13 +70,13 @@ const Login = () => {
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
-         
+            
           >
             Đăng nhập
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 
