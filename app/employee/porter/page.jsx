@@ -4,7 +4,7 @@ import React from "react";
 import SideBar from "./sidebar";
 import DashBoard from "../../../components/employee/dashboard"
 import Sending from "../../../components/employee/sending";
-import Reciving from "../../../components/employee/reciving";
+import Reciving from "../../../components/employee/receiving";
 import CreateOrder from "../../../components/employee/create-order"
 import { useSideBar } from "@/store/useSidebar";
 
@@ -16,8 +16,8 @@ export default function EmployeePort() {
       <SideBar />
       <div className="page-wrapper default-version">
         {sideBar == "dashboard" && <DashBoard />}
-        {sideBar == "agent" && <Sending />}
-        {sideBar == "port" && <Reciving />}
+        {sideBar == "sending" && <Sending />}
+        {sideBar == "reciving" && <Reciving />}
         {sideBar == "create-order" && <CreateOrder />}
       </div>
     </section>

@@ -1,21 +1,12 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Employee extends Model {
-    static associate(models) {
-      Employee.belongsTo(models.Account, {
-        foreignKey: "account_id",
-        references: {
-          model: "Account",
-          key: "account_id",
-        },
-      });
-      Employee.hasOne(models.Account);
-    }
+  class Account extends Model {
+    static associate(models) {}
   }
-  Employee.init(
+  Account.init(
     {
-      employee_id: {
-        type: DataTypes.INTEGER,
+      account_id: {
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -23,34 +14,47 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      firstName: {
+      name: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
+      password: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
+      roles: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
+      phone: {
         type: DataTypes.STRING(50),
         allowNull: true,
         validate: {
           notEmpty: false,
         },
       },
-      lastName: {
-        type: DataTypes.STRING(50),
-        allowNull: false,
+      email: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
         validate: {
-          notEmpty: true,
-        },
-      },
-      account_id: {
-        type: DataTypes.INTEGER,
-        //   autoIncrement: true,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
+          notEmpty: false,
         },
       },
     },
     {
       sequelize,
-      modelName: "employee",
+      modelName: "accounts",
       timestamps: false,
     }
   );
-  return Employee;
+  return Account;
 };

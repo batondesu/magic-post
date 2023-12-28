@@ -55,7 +55,7 @@ export default function CreateOrder() {
         <section className="page-wrapper default-version">
             <nav className="navbar-wrapper bg--dark">
                 <div className="navbar__left">
-                    <button type="button" className="res-sidebar-open-btn me-3"><FaBars /></button>
+                    <FaBars className="res-sidebar-open-btn me-3" />
                 </div>
                 <div className="navbar__right">
                     <ul className="navbar__action-list">
@@ -127,16 +127,6 @@ export default function CreateOrder() {
                                                         autoComplete="off" className="form-control date" placeholder="DD/MM/YY"
                                                         required />
                                                     <span className="input-group-text"><FaCalendar /></span>
-                                                </div>
-                                            </div>
-                                            <div className="col-6 form-group">
-                                                <label htmlFor="">Trạng thái thanh toán</label>
-                                                <div className="input-group">
-                                                    <select value={selectedOption3} className="form-control"  name="payment_status" onChange={handleOption3Change}>
-                                                        <option value="0">Chưa thanh toán</option>
-                                                        <option value="1">Đã thanh toán</option>
-                                                    </select>
-                                                    <span className="input-group-text"><FaMoneyBill /></span>
                                                 </div>
                                             </div>
                                             <div className="col-6 form-group">
@@ -238,7 +228,7 @@ export default function CreateOrder() {
                                                         <div className="row" id="addedField">
                                                             <div className="row single-item gy-2">
                                                                 <div className="col-md-3">
-                                                                    <input type="text" className="form-control" placeholder="Tên hàng hóa" name="items[0][name]"/>
+                                                                    <input type="text" className="form-control" placeholder="Mã hàng hóa" name="items[0][name]"/>
                                                                 </div>
                                                                 <div className="col-md-2">
                                                                     <select className="form-control selected_type" name="items[0][type]" value={selectedOption5} onChange={handleOption5Change}>
@@ -265,8 +255,8 @@ export default function CreateOrder() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" className="btn btn--primary h-45 w-100 Submitbtn"> Tạo đơn</button>
                                     </div>
+                                    <button type="submit" className="btn btn--primary h-45 w-100 Submitbtn">Tạo đơn</button>
                                 </form>
                             </div>
                         </div>

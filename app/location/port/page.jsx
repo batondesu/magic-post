@@ -2,12 +2,12 @@
 
 import React from "react";
 import SideBar from "./sidebar";
-import DashBoard from "../../../components/location/dashboard"
-import EmployeeList from "../../../components/location/employee-list";
-import OrderList from "../../../components/location/order-list";
+import DashBoard from "../../../components/location/port/dashboard"
+import EmployeeListPort from './../../../components/location/port/employee-list';
+import OrderListPort from './../../../components/location/port/order-list';
 import { useSideBar } from "@/store/useSidebar";
 
-export default function LocationAgent() {
+export default function LocationPort() {
   let { sideBar, setSideBar } = useSideBar();
 
   return (
@@ -15,8 +15,8 @@ export default function LocationAgent() {
       <SideBar />
       <div className="page-wrapper default-version">
         {sideBar == "dashboard" && <DashBoard />}
-        {sideBar == "employee-list" && <EmployeeList />}
-        {sideBar == "order-list" && <OrderList />}
+        {sideBar == "employee-list" && <EmployeeListPort />}
+        {sideBar == "order-list" && <OrderListPort />}
       </div>
     </section>
   );

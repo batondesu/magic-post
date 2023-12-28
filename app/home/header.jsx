@@ -10,7 +10,7 @@ export default function Header() {
                 <div className="container bg-transparent">
                     <nav className="bg-transparent flex justify-between items-center py-3">
                         <a className="text-3xl font-semibold leading-none" href="/home">
-                            <Image className="h-10" src={imageAsset1} alt="" />
+                            
                         </a>
                         <ul className="hidden lg:flex lg:items-center lg:w-auto lg:space-x-12">
                             <li className="pt-4 pb-4">

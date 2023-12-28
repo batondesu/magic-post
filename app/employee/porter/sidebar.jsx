@@ -16,7 +16,7 @@ import { LuCombine } from "react-icons/lu";
 export default function SideBar() {
   let { sideBar, setSideBar } = useSideBar();
   return (
-            <div className="sidebar bg--dark">
+            <div className="sidebar bg--dark grid md:grid-cols-sidebar">
                 <button className="res-sidebar-close-btn"><FaTimes /></button>
                 <div className="sidebar__inner">
                     <div className="sidebar__logo">
@@ -37,7 +37,7 @@ export default function SideBar() {
 
                             <li 
                                 className="sidebar-menu-item nav-link "
-                                onClick={() => setSideBar("agent")}
+                                onClick={() => setSideBar("receiving")}
                             >
                                 <div className="d-flex align-items-center cursor-pointer">
                                     <LiaShippingFastSolid size={22} className="mr-2" />
@@ -47,7 +47,7 @@ export default function SideBar() {
             
                             <li
                                 className="sidebar-menu-item nav-link"
-                                onClick={() => setSideBar("port")}
+                                onClick={() => setSideBar("sending")}
                             >
                                 <div className="d-flex align-items-center cursor-pointer">
                                     <LuCombine size={22} className="mr-2" />

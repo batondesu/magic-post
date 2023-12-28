@@ -4850,7 +4850,7 @@ th.w-85 {
 
 @media (max-width: 991px) {
     .res-sidebar-open-btn {
-        display: inline-block;
+        display: block;
     }
 }
 
@@ -4867,12 +4867,8 @@ th.w-85 {
 
 @media (max-width: 991px) {
     .sidebar .res-sidebar-close-btn {
-        display: block;
+        display: inline-block;
     }
-}
-
-.sidebar .res-sidebar-close-btn i {
-    font-size: 24px;
 }
 
 .sidebar .sidebar__logo-shape {
@@ -8095,4 +8091,3 @@ label.required:after {
 .search-list .bg--dark a {
     color: #fff !important;
 }
-

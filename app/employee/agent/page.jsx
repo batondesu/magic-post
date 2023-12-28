@@ -2,11 +2,12 @@
 
 import React from "react";
 import SideBar from "./sidebar";
-import DashBoard from "../../../components/employee/dashboard"
-import Sending from "../../../components/employee/sending";
-import Reciving from "../../../components/employee/reciving";
-import CreateOrder from "../../../components/employee/create-order"
+import DashBoard from "@/components/employee/dashboard";
+import Sending from "@/components/employee/sending";
+import Receiving from "@/components/employee/receiving";
+import CreateOrder from "@/components/employee/create-order";
 import Record from "@/components/employee/record";
+
 import { useSideBar } from "@/store/useSidebar";
 
 export default function EmployeeAgent() {
@@ -18,7 +19,7 @@ export default function EmployeeAgent() {
       <div className="page-wrapper default-version">
         {sideBar == "dashboard" && <DashBoard />}
         {sideBar == "sending" && <Sending />}
-        {sideBar == "reciving" && <Reciving />}
+        {sideBar == "receiving" && <Receiving />}
         {sideBar == "create-order" && <CreateOrder />}
         {sideBar == "record" && <Record />}
       </div>

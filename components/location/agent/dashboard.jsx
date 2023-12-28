@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 
 // CSS
-import './asset/css/bootstrap-toggle.min.css'
-import './asset/css/bootstrap.min.css'
-import './asset/css/app.css'
+import '../asset/css/bootstrap-toggle.min.css'
+import '../asset/css/bootstrap.min.css'
+import '../asset/css/app.css'
 
-import imageAsset from './asset/imgs/profile.jpg';
+import imageAsset from '../asset/imgs/profile.jpg';
 import { FaBars, FaChevronCircleDown, FaDollyFlatbed, FaMoneyBillWave, FaUserCheck, FaUniversity, FaHourglassStart, FaDolly, FaAccessibleIcon   } from "react-icons/fa";
 import {FaListCheck} from "react-icons/fa6";
 import { IoKeyOutline } from "react-icons/io5";
@@ -34,7 +34,7 @@ export default function DashBoard() {
                                             />
                                         </span>
                                         <span className="navbar-user__info">
-                                            <span className="navbar-user__name">Trưởng điểm</span>
+                                            <span className="navbar-user__name">Trưởng điểm giao dịch</span>
                                         </span>
                                         <span className="icon"><FaChevronCircleDown /></span>
                                     </span>

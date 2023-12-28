@@ -1,23 +1,20 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Customer extends Model {
+  class Employee extends Model {
     static associate(models) {
-      Customer.belongsTo(models.Account, {
+      Employee.belongsTo(models.Account, {
         foreignKey: "account_id",
         references: {
           model: "Account",
           key: "account_id",
         },
       });
-      Customer.hasMany(models.Parcel, {
-        foreignKey: "customer_id",
-      });
-      Customer.hasOne(models.Account);
+      Employee.hasOne(models.Account);
     }
   }
-  Customer.init(
+  Employee.init(
     {
-      customer_id: {
+      employee_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
@@ -40,20 +37,6 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      phone: {
-        type: DataTypes.STRING(50),
-        allowNull: true,
-        validate: {
-          notEmpty: false,
-        },
-      },
-      address: {
-        type: DataTypes.STRING(1000),
-        allowNull: true,
-        validate: {
-          notEmpty: false,
-        },
-      },
       account_id: {
         type: DataTypes.INTEGER,
         //   autoIncrement: true,
@@ -65,9 +48,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "customers",
+      modelName: "employee",
       timestamps: false,
     }
   );
-  return Customer;
+  return Employee;
 };

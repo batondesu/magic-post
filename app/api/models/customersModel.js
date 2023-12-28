@@ -1,19 +1,23 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Location extends Model {
+  class Customer extends Model {
     static associate(models) {
-      Location.belongsTo(models.Account, {
+      Customer.belongsTo(models.Account, {
         foreignKey: "account_id",
         references: {
           model: "Account",
           key: "account_id",
         },
       });
+      Customer.hasMany(models.Parcel, {
+        foreignKey: "customer_id",
+      });
+      Customer.hasOne(models.Account);
     }
   }
-  Location.init(
+  Customer.init(
     {
-      location_id: {
+      customer_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
@@ -22,18 +26,32 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      address: {
-        type: DataTypes.STRING(1000),
+      firstName: {
+        type: DataTypes.STRING(50),
+        allowNull: true,
+        validate: {
+          notEmpty: false,
+        },
+      },
+      lastName: {
+        type: DataTypes.STRING(50),
         allowNull: false,
         validate: {
           notEmpty: true,
         },
       },
-      type: {
+      phone: {
         type: DataTypes.STRING(50),
-        allowNull: false,
+        allowNull: true,
         validate: {
-          notEmpty: true,
+          notEmpty: false,
+        },
+      },
+      address: {
+        type: DataTypes.STRING(1000),
+        allowNull: true,
+        validate: {
+          notEmpty: false,
         },
       },
       account_id: {
@@ -47,9 +65,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "locations",
+      modelName: "customers",
       timestamps: false,
     }
   );
-  return Location;
+  return Customer;
 };

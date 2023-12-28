@@ -2,9 +2,9 @@
 
 import React from "react";
 import SideBar from "./sidebar";
-import DashBoard from "../../../components/location/dashboard"
-import EmployeeList from "../../../components/location/employee-list";
-import OrderList from "../../../components/location/order-list";
+import DashBoard from "../../../components/location/agent/dashboard"
+import EmployeeListAgent from './../../../components/location/agent/employee-list';
+import OrderListAgent from './../../../components/location/agent/order-list';
 import { useSideBar } from "@/store/useSidebar";
 
 export default function LocationAgent() {
@@ -15,8 +15,8 @@ export default function LocationAgent() {
       <SideBar />
       <div className="page-wrapper default-version">
         {sideBar == "dashboard" && <DashBoard />}
-        {sideBar == "employee-list" && <EmployeeList />}
-        {sideBar == "order-list" && <OrderList />}
+        {sideBar == "employee-list" && <EmployeeListAgent />}
+        {sideBar == "order-list" && <OrderListAgent />}
       </div>
     </section>
   );

@@ -1,19 +1,12 @@
 // pages/login.js
 'use client'
 import '/app/global.css'
-
 import React from 'react';
 import Link from "next/link";
-
 import { TiPhone } from 'react-icons/ti';
 import { FaLock } from 'react-icons/fa';
 import { useRouter } from 'next/router';
-import authenticate from '@/BE/middlewares/authenticate';
-import routesInit from '@/BE/routes/indexRoute';
 
-const express = require('express');
-const app = express();
-routesInit(app);
 
 const Login = () => {
   const router = useRouter();

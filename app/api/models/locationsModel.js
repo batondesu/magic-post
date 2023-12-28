@@ -1,12 +1,20 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Account extends Model {
-    static associate(models) {}
+  class Location extends Model {
+    static associate(models) {
+      Location.belongsTo(models.Account, {
+        foreignKey: "account_id",
+        references: {
+          model: "Account",
+          key: "account_id",
+        },
+      });
+    }
   }
-  Account.init(
+  Location.init(
     {
-      account_id: {
-        type: DataTypes.INTEGER.UNSIGNED,
+      location_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -14,47 +22,34 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      name: {
+      address: {
+        type: DataTypes.STRING(1000),
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
+      type: {
         type: DataTypes.STRING(50),
         allowNull: false,
         validate: {
           notEmpty: true,
         },
       },
-      password: {
-        type: DataTypes.STRING(50),
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        },
-      },
-      roles: {
+      account_id: {
         type: DataTypes.INTEGER,
+        //   autoIncrement: true,
         allowNull: false,
         validate: {
           notEmpty: true,
-        },
-      },
-      phone: {
-        type: DataTypes.STRING(50),
-        allowNull: true,
-        validate: {
-          notEmpty: false,
-        },
-      },
-      email: {
-        type: DataTypes.STRING(255),
-        allowNull: true,
-        validate: {
-          notEmpty: false,
         },
       },
     },
     {
       sequelize,
-      modelName: "accounts",
+      modelName: "locations",
       timestamps: false,
     }
   );
-  return Account;
+  return Location;
 };

@@ -2,18 +2,18 @@ import React from "react";
 import Image from "next/image";
 
 // CSS
-import './asset/css/bootstrap-toggle.min.css'
-import './asset/css/bootstrap.min.css'
-import './asset/css/app.css'
+import '../asset/css/bootstrap.min.css'
+import '../asset/css/bootstrap-toggle.min.css'
+import '../asset/css/app.css'
 
-import imageAsset from './asset/imgs/profile.jpg';
+import imageAsset from '../asset/imgs/profile.jpg';
 import { FaBars, FaChevronCircleDown } from "react-icons/fa";
 import { IoKeyOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 import { PiUserCircle  } from "react-icons/pi";
 
-export default function EmployeeList() {
+export default function OrderListAgent() {
     return (
         <div className="page-wrapper default-version">
             <nav className="navbar-wrapper bg--dark">
@@ -33,7 +33,7 @@ export default function EmployeeList() {
                                             />
                                         </span>
                                         <span className="navbar-user__info">
-                                            <span className="navbar-user__name">Trưởng điểm</span>
+                                            <span className="navbar-user__name">Trưởng điểm giao dịch</span>
                                         </span>
                                         <span className="icon"><FaChevronCircleDown /></span>
                                     </span>
@@ -67,11 +67,12 @@ export default function EmployeeList() {
                         </Dropdown>
                     </ul>
                 </div>
-            </nav>  
+
+            </nav>    
             <div className="body-wrapper">
                 <div className="bodywrapper__inner">
                     <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                        <h6 className="page-title">Danh sách giao dịch viên</h6>
+                        <h6 className="page-title">Danh sách hàng gửi, hàng nhận</h6>
                         <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
                         </div>
                     </div>
@@ -88,23 +89,15 @@ export default function EmployeeList() {
                                         <div className="d-flex flex-wrap gap-4">
                                             <div className="flex-grow-1">
                                                 <label>Tìm kiếm</label>
-                                                <input type="text" name="search"  className="form-control"/>
+                                                <input type="text" name="search" className="form-control"/>
                                             </div>
                                             <div className="flex-grow-1">
-                                                <label>Chi nhánh</label>
+                                                <label>Trạng thái đơn hàng</label>
                                                 <select name="status" className="form-control" defaultValue={'0'}>
                                                     <option value="0">Tất cả</option>
-                                                    <option value="1">Hà Đông</option>
-                                                    <option value="2">Cầu Giấy</option>
-                                                    <option value="3">Hoàng Mai</option>
-                                                </select>
-                                            </div>
-                                            <div className="flex-grow-1">
-                                                <label>Trạng thái tài khoản</label>
-                                                <select name="payment_status" className="form-control" defaultValue={'0'}>
-                                                    <option value="0">Tất cả</option>
-                                                    <option value="1">Đã kích hoạt</option>
-                                                    <option value="2">Chưa kích hoạt</option>
+                                                    <option value="1">Đã giao</option>
+                                                    <option value="2">Chưa giao</option>
+                                                    <option value="3">Đã gửi</option>
                                                 </select>
                                             </div>
                                             <div className="flex-grow-1">
@@ -125,11 +118,10 @@ export default function EmployeeList() {
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Tài khoản</th>
-                                                    <th>Mật khẩu</th>
-                                                    <th>Chi nhánh</th>
+                                                    <th>Giao dịch viên phụ trách</th>
+                                                    <th>Phân loại</th>
                                                     <th>Ngày tạo</th>
-                                                    <th>Trạng thái tài khoản</th>
+                                                    <th>Trạng thái đơn hàng</th>
                                                     <th>Thao tác</th>
                                                 </tr>
                                             </thead>
@@ -139,57 +131,53 @@ export default function EmployeeList() {
                                                         <span>2423553252</span>
                                                     </td>
                                                     <td>
-                                                        <span>employee1@gmail.com</span>
+                                                        <span>Employee 1</span>
                                                     </td>
                                                     <td>
-                                                        <span>###########</span> <br/>
-                                                    </td>
-                                                    <td>
-                                                        <span>Cầu Giấy</span>
+                                                        <span>Hàng gửi</span> <br/>
                                                     </td>
                                                     <td>
                                                         <span>20/11/2023</span>
                                                     </td>
                                                     <td>
-                                                        <span className="badge badge--success">Đã kích hoạt</span>
+                                                        <span className="badge badge--success">Đã giao</span>
                                                     </td>
                                                     <td>
-                                                        <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
-                                                            Sửa
+                                                        <a href="" title="" className="btn btn-sm btn-outline--primary mr-2">
+                                                            Chi tiết
                                                         </a>
                                                         <a href="" title="" className="btn btn-sm btn-outline--primary">
                                                             Xóa
                                                         </a>
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
                                                         <span>2423553252</span>
                                                     </td>
                                                     <td>
-                                                        <span>employee1@gmail.com</span>
+                                                        <span>Employee 2</span>
                                                     </td>
                                                     <td>
-                                                        <span>###########</span> <br/>
-                                                    </td>
-                                                    <td>
-                                                        <span>Cầu Giấy</span>
+                                                        <span>Hàng nhận</span> <br/>
                                                     </td>
                                                     <td>
                                                         <span>20/11/2023</span>
                                                     </td>
                                                     <td>
-                                                        <span className="badge badge--warning">Chưa kích hoạt</span>
+                                                        <span className="badge badge--warning">Chưa nhận</span>
                                                     </td>
                                                     <td>
-                                                        <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
-                                                            Sửa
+                                                        <a href="" title="" className="btn btn-sm btn-outline--primary mr-2">
+                                                            Chi tiết
                                                         </a>
                                                         <a href="" title="" className="btn btn-sm btn-outline--primary">
                                                             Xóa
                                                         </a>
                                                     </td>
                                                 </tr>
+                                                
                                         </tbody>
                                     </table>
                                 </div>
@@ -202,24 +190,24 @@ export default function EmployeeList() {
                                         </li>
                                         <li className="page-item active" aria-current="page"><span className="page-link">1</span></li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/location/agent/employee-list?page=2">2</a>
+                                            <a className="page-link" href="/location/agent/order-list?page=2">2</a>
                                         </li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/location/agent/employee-list?page=3">3</a>
+                                            <a className="page-link" href="/location/agent/order-list?page=3">3</a>
                                         </li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/location/agent/employee-list?page=4">4</a>
+                                            <a className="page-link" href="/location/agent/order-list?page=4">4</a>
                                         </li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/location/agent/employee-list?page=5">5</a>
+                                            <a className="page-link" href="/location/agent/order-list?page=5">5</a>
                                         </li>
                                         <li className="page-item disabled" aria-disabled="true"><span className="page-link">...</span></li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/location/agent/employee-list?page=13">14</a>
+                                            <a className="page-link" href="/location/agent/order-list?page=13">14</a>
                                         </li>
-                                        <li className="page-item"><a className="page-link" href="/location/agent/employee-list?page=14">15</a></li>
+                                        <li className="page-item"><a className="page-link" href="/location/agent/order-list?page=14">15</a></li>
                                         <li className="page-item">
-                                            <a className="page-link" href="/location/agent/employee-list?page=2" rel="next" aria-label="Next &raquo;">
+                                            <a className="page-link" href="/location/agent/order-list?page=2" rel="next" aria-label="Next &raquo;">
                                                 &rsaquo;
                                             </a>
                                         </li>
@@ -231,6 +219,6 @@ export default function EmployeeList() {
                     </div>            
                 </div>            
             </div>
-        </div>              
+        </div>            
     )
 }

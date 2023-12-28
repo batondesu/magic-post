@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
 
-import ".//custom.210823.css"
+import "./custom.210823.css"
 // CSS
 import './asset/css/bootstrap-toggle.min.css'
 import './asset/css/bootstrap.min.css'
@@ -257,24 +257,6 @@ export default function Record() {
                                             <div className="row">
                                                 <div className="col-xs-6 col-md-6">
                                                     <div className="form-group text-info item">
-                                                        <label className="control-label" htmlFor="to_phone">
-                                                            Số điện thoại{" "}
-                                                            <span className="required text-danger">*</span>
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            id="to_phone"
-                                                            name="to_phone"
-                                                            defaultValue=""
-                                                            placeholder="Số điện thoại"
-                                                            autoComplete="off"
-                                                            className="form-control"
-                                                            required=""
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div className="col-xs-6 col-md-6">
-                                                    <div className="form-group text-info item">
                                                         <label className="control-label" htmlFor="to_name">
                                                             Họ <span className="required text-danger">*</span>
                                                         </label>
@@ -300,6 +282,24 @@ export default function Record() {
                                                             className="form-control"
                                                             required=""
                                                             placeholder="Họ tên"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-xs-6 col-md-6">
+                                                    <div className="form-group text-info item">
+                                                        <label className="control-label" htmlFor="to_phone">
+                                                            Số điện thoại{" "}
+                                                            <span className="required text-danger">*</span>
+                                                        </label>
+                                                        <input
+                                                            type="text"
+                                                            id="to_phone"
+                                                            name="to_phone"
+                                                            defaultValue=""
+                                                            placeholder="Số điện thoại"
+                                                            autoComplete="off"
+                                                            className="form-control"
+                                                            required=""
                                                         />
                                                     </div>
                                                 </div>
@@ -576,7 +576,6 @@ export default function Record() {
                                                         defaultValue={1}
                                                         className="js-switch"
                                                         data-switchery="true"
-                                                       
                                                     />
                                                     <span
                                                         className="switchery switchery-small"

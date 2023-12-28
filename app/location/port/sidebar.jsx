@@ -1,4 +1,4 @@
-import React from "react";
+import react from "react";
 import { useSideBar } from "@/store/useSidebar";
 import Image from "next/image";
 
@@ -7,8 +7,9 @@ import './asset/css/bootstrap.min.css'
 import './asset/css/bootstrap-toggle.min.css'
 import './asset/css/app.css'
 
+import imageAsset1 from './asset/imgs/logo.png'
 import { FaTimes } from "react-icons/fa";
-import { IoKeyOutline, IoHomeOutline } from "react-icons/io5";
+import { IoHomeOutline } from "react-icons/io5";
 import { LiaFaxSolid  } from "react-icons/lia";
 import { LuUsers } from "react-icons/lu";
 
@@ -20,31 +21,38 @@ export default function SideBar() {
                 <div className="sidebar__inner">
                     <div className="sidebar__logo">
                         <a href="/location" className="sidebar__main-logo">
+                            <Image src={imageAsset1} />
                         </a>
                     </div>
                     <div className="sidebar__menu-wrapper" id="sidebar__menuWrapper">
                         <ul className="sidebar__menu">
-                            <li className="sidebar-menu-item cursor-pointer" 
-                                onClick={() => setSideBar("dashboard")}
+                            <li className="sidebar-menu-item nav-link"
+                                onClick={() => setSideBar("dashboard")} 
                             >
-                                <IoHomeOutline size={22} className="mr-2" />
-                                <span className="menu-title">Dashboard</span>
+                                <div className="d-flex align-items-center cursor-pointer">
+                                    <IoHomeOutline size={22} className="mr-2" />
+                                    <span className="menu-title">Dashboard</span>
+                                </div>
                             </li>
-                            
-                            <li
-                                className="sidebar-menu-item cursor-pointer"
+
+                            <li 
+                                className="sidebar-menu-item nav-link "
                                 onClick={() => setSideBar("employee-list")}
                             >
-                                <LuUsers size={22} className="mr-2" />
-                                <a href="location/employee-list" className="menu-title">Quản lý nhân viên</a>
+                                <div className="d-flex align-items-center cursor-pointer">
+                                    <LuUsers size={22} className="mr-2" />
+                                    <span className="menu-title">Quản lý nhân viên</span>
+                                </div>
                             </li>
             
                             <li
-                                className="sidebar-menu-item cursor-pointer"
+                                className="sidebar-menu-item nav-link"
                                 onClick={() => setSideBar("order-list")}
                             >
-                                <LiaFaxSolid size={22} className="mr-2" />
-                                <a href="location/order-list" className="menu-title">Thống kê hàng</a>
+                                <div className="d-flex align-items-center cursor-pointer">
+                                    <LiaFaxSolid size={22} className="mr-2" />
+                                    <span className="menu-title">Thống kê hàng</span>
+                                </div>
                             </li>            
                         </ul>
                     </div>
