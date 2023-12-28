@@ -8,15 +8,18 @@ import Link from "next/link";
 import { TiPhone } from 'react-icons/ti';
 import { FaLock } from 'react-icons/fa';
 import { useRouter } from 'next/router';
-import routesInit from '@/BE/routes/indexRoute';
 import authenticate from '@/BE/middlewares/authenticate';
+import routesInit from '@/BE/routes/indexRoute';
 
+const express = require('express');
+const app = express();
+routesInit(app);
 
 const Login = () => {
   const router = useRouter();
 
   const handleLogin = () => {
-    router.push(routesInit);
+    //router.push(routesInit);
   }
 
   return (
