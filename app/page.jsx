@@ -8,14 +8,14 @@ import OrderList from "@/components/location/order-list"
 import DashBoard from "@/components/employee/dashboard"
 import EmployeeAgent from "./employee/agent/page"
 import Login from "./login/page"
-import Record from "./employee/record"
+import Record from "@/components/employee/record"
 
 // import User from "./user/page" 
 
 export default function Home() {
   return (
-    <>
-      <EmployeeAgent  />
+    <>  
+      <Login  />
     </>
   )
 }

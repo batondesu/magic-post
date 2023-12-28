@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th12 27, 2023 lúc 09:33 AM
+-- Thời gian đã tạo: Th12 28, 2023 lúc 10:09 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.1.12
 
@@ -44,7 +44,17 @@ INSERT INTO `accounts` (`account_id`, `name`, `password`, `roles`, `phone`, `ema
 (1, 'duongmanh', '123456', 0, NULL, NULL),
 (2, 'caodung', '123456', 0, NULL, NULL),
 (3, 'trantoan', '123456', 0, NULL, NULL),
-(4, 'customer', '123456', 3, NULL, NULL);
+(4, 'customer', '123456', 3, NULL, NULL),
+(5, 'employee1', '123456', 2, NULL, NULL),
+(6, 'employee2', '123456', 4, NULL, NULL),
+(7, 'employee3', '123456', 4, NULL, NULL),
+(8, 'employee4', '123456', 2, NULL, NULL),
+(9, 'management', '123456', 1, NULL, NULL),
+(10, 'management1', '123456', 3, NULL, NULL),
+(11, 'management2', '123456', 3, NULL, NULL),
+(12, 'management3', '123456', 3, NULL, NULL),
+(13, 'management4', '123456', 1, NULL, NULL),
+(14, 'employee5', '123456', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -82,6 +92,17 @@ CREATE TABLE `employee` (
   `location_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `employee`
+--
+
+INSERT INTO `employee` (`employee_id`, `firstname`, `lastname`, `account_id`, `location_id`) VALUES
+(1, 'A', 'nguyen van', 5, 1),
+(2, 'B', 'Le Hai', 8, 4),
+(3, 'C', 'Tran', 6, 2),
+(4, 'D', 'Tran', 7, 3),
+(5, 'E', 'Cao', 14, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -94,6 +115,17 @@ CREATE TABLE `locations` (
   `type` varchar(50) NOT NULL,
   `account_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `locations`
+--
+
+INSERT INTO `locations` (`location_id`, `address`, `type`, `account_id`) VALUES
+(1, 'Ha Noi', 'port', 9),
+(2, 'Vinh Phuc', 'agent', 10),
+(3, 'Bac Ninh', 'agent', 11),
+(4, 'Tuyen Quang', 'agent', 12),
+(5, 'Phu Tho', 'port', 13);
 
 -- --------------------------------------------------------
 
@@ -109,6 +141,17 @@ CREATE TABLE `orders` (
   `reciving_location` int(11) NOT NULL,
   `parcel_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `order_date`, `status`, `sending_location`, `reciving_location`, `parcel_id`) VALUES
+(1, '2023-11-11', 'shipping', 1, 2, 1),
+(2, '2023-10-11', 'shipped', 3, 1, 1),
+(3, '2023-10-10', 'shipped', 2, 3, 1),
+(4, '2023-10-13', 'shipping', 2, 4, 2),
+(6, '2023-11-13', 'cancelled', 4, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -188,7 +231,7 @@ ALTER TABLE `parcels`
 -- AUTO_INCREMENT cho bảng `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `customers`
@@ -200,19 +243,19 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT cho bảng `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `parcels`

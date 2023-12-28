@@ -1,4 +1,5 @@
 // pages/login.js
+'use client'
 import '/app/global.css'
 
 import React from 'react';
@@ -6,10 +7,18 @@ import Link from "next/link";
 
 import { TiPhone } from 'react-icons/ti';
 import { FaLock } from 'react-icons/fa';
-
+import { useRouter } from 'next/router';
 import routesInit from '@/BE/routes/indexRoute';
+import authenticate from '@/BE/middlewares/authenticate';
+
 
 const Login = () => {
+  const router = useRouter();
+
+  const handleLogin = () => {
+    router.push(routesInit);
+  }
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
       <div className="bg-white p-8 rounded shadow-md w-1/3">
@@ -70,7 +79,7 @@ const Login = () => {
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
-            
+            onClick={handleLogin}
           >
             Đăng nhập
           </button>

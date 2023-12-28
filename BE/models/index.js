@@ -1,5 +1,3 @@
-
-import mysql2 from 'mysql2'; 
 const Sequelize = require("sequelize");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -8,15 +6,13 @@ const db = {};
 
 const sequelize = new Sequelize(
   process.env.database,
-  process.env.user,
+  process.env.username,
   process.env.password,
   {
-    
-    dialectModule: mysql2,
     host: "localhost",
-    dialect: "mysql",
+    dialect: "mysql"
   }
-)
+);
 async function testConnection() {
   try {
     await sequelize.authenticate();
