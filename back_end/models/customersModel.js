@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       Customer.hasMany(models.Parcel, {
         foreignKey: "customer_id",
       });
-      Customer.hasOne(models.Account);
     }
   }
   Customer.init(

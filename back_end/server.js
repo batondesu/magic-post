@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const routesInit = require("./back_end/routes/indexRoute.js");
+const routesInit = require("./routes/indexRoute.js");
 
 const dotenv = require("dotenv");
 dotenv.config();
 
-const db = require("./back_end/models/index.js");
+const db = require("./models/index.js");
 async () => {
   await db.sequelize.sync();
 };
