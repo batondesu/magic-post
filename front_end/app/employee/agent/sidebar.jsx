@@ -21,7 +21,7 @@ export default function SideBar() {
       <button className="res-sidebar-close-btn"><FaTimes /></button>
       <div className="sidebar__inner">
         <div className="sidebar__logo">
-          <a href="/location" className="sidebar__main-logo">
+          <a href="/employee/agent" className="sidebar__main-logo">
             <Image src={imageAsset1} />
           </a>
         </div>

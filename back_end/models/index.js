@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
   process.env.password,
   {
     host: "localhost",
-    dialect: "mysql"
+    dialect: "mysql",
   }
 );
 async function testConnection() {

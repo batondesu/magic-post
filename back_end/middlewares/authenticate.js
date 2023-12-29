@@ -4,7 +4,6 @@ const authenticate = {
   isLogin: (req, res, next) => {
     //ACCESS TOKEN FROM HEADER, REFRESH TOKEN FROM COOKIE
     const token = req.headers.token;
-    console.log(req.headers);
     //const refreshToken = req.cookies.refreshToken;
     if (token) {
       const accessToken = token;
@@ -16,14 +15,12 @@ const authenticate = {
         next();
       });
     } else {
-      return res.status(401).json("You're not authenticatedsss");
+      return res.status(401).json("You're not authenticated");
     }
   },
   isAdmin: (req, res, next) => {
-    //console.log("xxx");
     authenticate.isLogin(req, res, () => {
       const authRole = req.user.role;
-      console.log(authRole);
       if (authRole == 0) {
         next();
       } else {

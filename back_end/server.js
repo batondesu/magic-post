@@ -7,7 +7,7 @@ const routesInit = require("./routes/indexRoute.js");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const db = require("./models/index.js");
+const db = require("./models");
 async () => {
   await db.sequelize.sync();
 };

@@ -1,7 +1,7 @@
 // pages/login.js
 'use client'
 import '/app/global.css'
-
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import Link from "next/link";
 
@@ -57,14 +57,18 @@ const Login = () => {
           name,
           password,
         })
-        .then((response) => { console.log(response.data.accessToken);
+        .then((response) => { 
           if (response.data.accessToken) {
             const accessToken = response.data.accessToken;
             localStorage.setItem("accessToken", accessToken);
+            
+            // console.log("response.data.account_id");
+            // console.log(response.data.location);
+
+            const ID = response.data.location.location_id;
+
             const storedAccessToken = localStorage.getItem("accessToken");
-            //console.log(storedAccessToken);
             if (storedAccessToken) {
-             
                 if (jwtDecode(storedAccessToken).role === 0) {
                   window.location.href = "/admin";
                 } else if (jwtDecode(storedAccessToken).role === 5) {
@@ -72,7 +76,8 @@ const Login = () => {
                 } else if (jwtDecode(storedAccessToken).role === 4) {
                   window.location.href = "/employee/agent";
                 } else if (jwtDecode(storedAccessToken).role === 3) {
-                  window.location.href = "/location/agent";
+                  window.location.href = `/location/agent?data=${encodeURIComponent(ID)}`;
+                 // router.push(`/location/agent?data=${encodeURIComponent(ID)}`);
                 } else if (jwtDecode(storedAccessToken).role === 2) {
                   window.location.href = "/employee/port";
                 } else if (jwtDecode(storedAccessToken).role === 1) {

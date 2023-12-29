@@ -7,11 +7,9 @@ import '../asset/css/bootstrap-toggle.min.css'
 import '../asset/css/app.css'
 
 import imageAsset from '../asset/imgs/profile.jpg';
-import { FaBars, FaChevronCircleDown } from "react-icons/fa";
-import { IoKeyOutline } from "react-icons/io5";
+import { FaBars } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
-import { PiUserCircle  } from "react-icons/pi";
+import {Button} from "@nextui-org/react";
 
 export default function OrderListPort() {
     return (
@@ -22,49 +20,20 @@ export default function OrderListPort() {
                 </div>
                 <div className="navbar__right">
                     <ul className="navbar__action-list">
-                        <Dropdown>
-                            <DropdownTrigger>
-                                <Button>
-                                    <span className="navbar-user">
-                                        <span className="navbar-user__thumb">
-                                            <Image
-                                                src={imageAsset}
-                                                alt="image" 
-                                            />
-                                        </span>
-                                        <span className="navbar-user__info">
-                                            <span className="navbar-user__name">Trưởng điểm tập kết</span>
-                                        </span>
-                                        <span className="icon"><FaChevronCircleDown /></span>
-                                    </span>
-                                </Button>
-                            </DropdownTrigger>
-                            <DropdownMenu className="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                                <DropdownItem href="/location/info"
-                                    className="dropdown-menu__item px-3 py-2">
-                                        <div className="d-flex align-items-center">
-                                            <PiUserCircle className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
-                                            <span className="dropdown-menu__caption text-default-300 ">Thông tin</span>
-                                        </div>
-                                </DropdownItem>
-            
-                                <DropdownItem href="/location/password"
-                                    className="dropdown-menu__item px-3 py-2">
-                                    <div className="d-flex align-items-center">
-                                        <IoKeyOutline className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
-                                        <span className="dropdown-menu__caption text-default-300">Mật khẩu</span>
-                                    </div>
-                                </DropdownItem>
-            
-                                <DropdownItem href="/home"
-                                    className="dropdown-menu__item d-flex px-3 py-2">
-                                    <div className="d-flex align-items-center">
-                                        <IoIosLogOut className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
-                                        <span className="dropdown-menu__caption text-default-300">Đăng xuất</span>
-                                    </div>
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </Dropdown>
+                        <Button>
+                            <span className="navbar-user">
+                                <span className="navbar-user__thumb">
+                                    <Image
+                                        src={imageAsset}
+                                        alt="image" 
+                                    />
+                                </span>
+                                <span className="navbar-user__info">
+                                    <span className="navbar-user__name">Trưởng điểm tập kết</span>
+                                </span>
+                                <a href="/home" className="icon"><IoIosLogOut size={24} /></a>
+                            </span>
+                        </Button>
                     </ul>
                 </div>
 
