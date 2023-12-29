@@ -42,27 +42,30 @@ export default function DashBoard() {
                             </DropdownTrigger>
                             <DropdownMenu className="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
                                 <DropdownItem href="/location/info"
-                                    className="dropdown-menu__item px-3 py-2">
-                                        <div className="d-flex align-items-center">
+                                    className="dropdown-menu__item px-3 py-2 ">
+                                        <label className="d-flex align-items-center">
                                             <PiUserCircle className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
-                                            <span className="dropdown-menu__caption text-default-300 ">Thông tin</span>
-                                        </div>
+                                            <span className="dropdown-menu__caption text-default-300" aria-labelledby="tac1"></span>
+                                            <span id="tac1">Thông tin</span>
+                                        </label>
                                 </DropdownItem>
             
                                 <DropdownItem href="/location/password"
                                     className="dropdown-menu__item px-3 py-2">
-                                    <div className="d-flex align-items-center">
+                                    <label className="d-flex align-items-center">
                                         <IoKeyOutline className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
-                                        <span className="dropdown-menu__caption text-default-300">Mật khẩu</span>
-                                    </div>
+                                        <span className="dropdown-menu__caption text-default-300" aria-labelledby="tac2">Mật khẩu</span>
+                                        <span id="tac2">Mật khẩu</span>
+                                    </label>
                                 </DropdownItem>
             
                                 <DropdownItem href="/home"
                                     className="dropdown-menu__item d-flex px-3 py-2">
-                                    <div className="d-flex align-items-center">
+                                    <label className="d-flex align-items-center">
                                         <IoIosLogOut className="text-xl text-default-500 pointer-events-none flex-shrink-0 mr-5" />
-                                        <span className="dropdown-menu__caption text-default-300">Đăng xuất</span>
-                                    </div>
+                                        <span className="dropdown-menu__caption text-default-300" aria-labelledby="tac3">Đăng xuất</span>
+                                        <span id="tac3">Đăng xuất</span>
+                                    </label>
                                 </DropdownItem>
                             </DropdownMenu>
                         </Dropdown>

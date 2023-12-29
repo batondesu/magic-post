@@ -41,7 +41,7 @@ export default function SideBar() {
               </div>
             </li>
 
-            <li className="sidebar-menu-item nav-link" onClick={() => setSideBar("reciving")}>
+            <li className="sidebar-menu-item nav-link" onClick={() => setSideBar("receiving")}>
               <div className="d-flex align-items-center cursor-pointer">
                 <LuCombine size={22} className="mr-2" />
                 <span className="menu-title">Đơn hàng nhận về</span>
