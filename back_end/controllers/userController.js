@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const authenticate = require("../middlewares/authenticate");
 const {
-  models: { Account },
+  models: { Account, Location },
 } = require("../models/");
 const { where } = require("sequelize");
 let refreshTokens = [];
@@ -13,7 +13,7 @@ const userController = {
   // [POST] REGISTER
   register: async (req, res) => {
     const { name, password } = req.body;
-    defaultRole = 5;
+    const defaultRole = 5;
     try {
       //Check name
       const checked_name = await Account.findOne({ where: { name } });
@@ -133,6 +133,9 @@ const userController = {
       const user = await Account.findOne({
         where: { name },
       });
+      const location = await Location.findOne({
+        where: { account_id : user.account_id },
+      });
       if (!user) {
         return res.status(400).json({ msg: "Invalid name. Pls try again." });
       } else if (user.password != password) {
@@ -149,7 +152,7 @@ const userController = {
           path: "/",
           sameSite: "strict",
         });
-        return res.status(200).json({ user, accessToken });
+        return res.status(200).json({ user, location, accessToken });
       }
     } catch (err) {
       console.log(err);
