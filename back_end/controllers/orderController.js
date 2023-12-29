@@ -18,33 +18,26 @@ const orderController = {
 
   // [GET] get by location_ID
   getOrderByLocation  : async (req, res) => {
-
-    // const [urlData, setUrlData] = useState(null);
-    // useEffect(() => {
-    //     // Lấy đối tượng URL từ window.location
-    //     const url = new URL(window.location.href);
-
-    //     // Lấy giá trị từ query parameter có tên là "data"
-    //     const dataFromUrl = url.searchParams.get('id');
-
-    //     // Đặt giá trị vào state
-    //     setUrlData(dataFromUrl);
-    //   }, []); 
-
-    // console.log(urlData);
-
     try {
       const locationid = req.query.id;
-      console.log(req.query);
+      //console.log(req.query);
+
       const order1 = await Order.findAll({
         where: { receiving_location: locationid },
       });
       const order2 = await Order.findAll({
         where: { sending_location: locationid },
       });
-      const address = await Location.findOne({
-        where: { location_id: locationid},
-      });
+      
+      // const address2 = await Location.findOne({
+      //   where: { location_id: order2.receiving_location},
+      // });
+      // const parcel1 = await Parcel.findOne({
+      //   where: { parcel_id: order1.parcel_id},
+      // });
+      // const parcel2 = await Parcel.findOne({
+      //   where: { parcel_id: order2.parcel_id},
+      // });
     
       if (!order1) {
         res.status(400).json({
@@ -55,7 +48,7 @@ const orderController = {
           msg: "Find successfully!!",
           order1,
           order2,
-          address
+          
         });
       }
     } catch (error) {
@@ -122,6 +115,71 @@ const orderController = {
         });
       }
     } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
+  // [GET] get All Order by Location
+  getAllOrderByReceivingLocation : async (req, res) => {
+    try {
+      const location1 = req.query.id;
+      console.log(location1);
+      const orders = await Order.findAll({
+        attributes: ["order_id", "order_date", "status" , "sending_location" , "parcel_id", "receiving_location" ],
+        where: {
+          sending_location: location1,
+        },
+        include: [
+          {
+            model: Location,
+            attributes: ["address"],
+          },
+          {
+            model: Parcel,
+            attributes: ["parcel_code"],
+          },
+        ],
+        
+      });
+
+      return res.status(200).json({
+        msg: "Find successfully!!",
+        orders,
+      });
+    } catch (error) {
+      //console.log(6);
+      res.status(500).json(error);
+    }
+  },
+
+  getAllOrderByReceivingLocation1 : async (req, res) => {
+    try {
+      const location1 = req.query.id;
+      console.log(location1);
+      const orders = await Order.findAll({
+        attributes: ["order_id", "order_date", "status" , "sending_location" , "parcel_id", "receiving_location" ],
+        where: {
+          receiving_location: location1,
+        },
+        include: [
+          {
+            model: Location,
+            attributes: ["address"],
+          },
+          {
+            model: Parcel,
+            attributes: ["parcel_code"],
+          },
+        ],
+        
+      });
+
+      return res.status(200).json({
+        msg: "Find successfully!!",
+        orders,
+      });
+    } catch (error) {
+      //console.log(6);
       res.status(500).json(error);
     }
   },

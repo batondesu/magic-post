@@ -13,6 +13,11 @@ router.get("/getByLocation", orderController.getOrderByLocation);
 //[GET] get Status Orders by ID
 router.get("/getStatusByID", orderController.getStatusOrderByID);
 
+//[GET] get Orders by Location
+router.get("/getByReceivingLocation", orderController.getAllOrderByReceivingLocation);
+
+router.get("/getByReceivingLocation1", orderController.getAllOrderByReceivingLocation1);
+
 //[GET] get Orders by Status
 router.get("/getByStatus", orderController.getAllOrderByStatus);
 

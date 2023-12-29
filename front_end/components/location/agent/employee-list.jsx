@@ -1,19 +1,46 @@
+'use client'
 import React from "react";
 import Image from "next/image";
-
+import { useState , useEffect } from "react";
 // CSS
 import '../asset/css/bootstrap-toggle.min.css'
 import '../asset/css/bootstrap.min.css'
 import '../asset/css/app.css'
-
+import axios from "axios";
 import imageAsset from '../asset/imgs/profile.jpg';
 import { FaBars } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
 import { Button} from "@nextui-org/react";
 
-
+let myVariable = 1;
 
 export default function EmployeeListAgent() {
+
+    const [employees, setEmployee] = useState();
+    const [location, setLocation] = useState();
+    useEffect(() => {
+        const url = new URL(window.location.href);
+        const dataFromUrl = url.searchParams.get('data');
+        myVariable = dataFromUrl;
+    }, []);
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/location/getEmployee', {
+            params: {
+                id: myVariable
+            }
+        })
+            .then(response => {
+                setEmployee(response.data.employee);
+                setLocation(response.data.location);
+            })
+            .catch(error => {
+                // Xử lý lỗi nếu có
+                console.error('Error fetching data:', error);
+            });
+    }, []);
+
+    console.log(employees);
 
     return (
         <div className="page-wrapper default-version">
@@ -62,15 +89,7 @@ export default function EmployeeListAgent() {
                                                 <label>Tìm kiếm</label>
                                                 <input type="text" name="search"  className="form-control"/>
                                             </div>
-                                            <div className="flex-grow-1">
-                                                <label>Chi nhánh</label>
-                                                <select name="status" className="form-control" defaultValue={'0'}>
-                                                    <option value="0">Tất cả</option>
-                                                    <option value="1">Hà Đông</option>
-                                                    <option value="2">Cầu Giấy</option>
-                                                    <option value="3">Hoàng Mai</option>
-                                                </select>
-                                            </div>
+                                            
                                             <div className="flex-grow-1">
                                                 <label>Trạng thái tài khoản</label>
                                                 <select name="payment_status" className="form-control" defaultValue={'0'}>
@@ -79,10 +98,7 @@ export default function EmployeeListAgent() {
                                                     <option value="2">Chưa kích hoạt</option>
                                                 </select>
                                             </div>
-                                            <div className="flex-grow-1">
-                                                <label>Ngày tạo</label>
-                                                <input name="date" type="text" className="date form-control" placeholder="DD/MM/YY" autoComplete="off" />
-                                            </div>
+                                            
                                             <div className="flex-grow-1 align-self-end">
                                                 <button className="btn btn--primary w-100 h-45">Tìm</button>
                                             </div>
@@ -96,72 +112,32 @@ export default function EmployeeListAgent() {
                                         <table className="table table--light style--two">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Tài khoản</th>
-                                                    <th>Mật khẩu</th>
+                                                    <th>Mã nhân viên</th>
+                                                    <th>Họ tên</th>
+                                                    <th>Username</th>
                                                     <th>Chi nhánh</th>
-                                                    <th>Ngày tạo</th>
-                                                    <th>Trạng thái tài khoản</th>
+                                                    <th> Số điện thoại</th>
+                                                    <th> Email </th>
                                                     <th>Thao tác</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <span>2423553252</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>employee1@gmail.com</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>###########</span> <br/>
-                                                    </td>
-                                                    <td>
-                                                        <span>Cầu Giấy</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>20/11/2023</span>
-                                                    </td>
-                                                    <td>
-                                                        <span className="badge badge--success">Đã kích hoạt</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
-                                                            Sửa
-                                                        </a>
-                                                        <a href="" title="" className="btn btn-sm btn-outline--primary">
-                                                            Xóa
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <span>2423553252</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>employee1@gmail.com</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>###########</span> <br/>
-                                                    </td>
-                                                    <td>
-                                                        <span>Cầu Giấy</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>20/11/2023</span>
-                                                    </td>
-                                                    <td>
-                                                        <span className="badge badge--warning">Chưa kích hoạt</span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="" title="" className="btn btn-sm btn-outline--info mr-2">
-                                                            Sửa
-                                                        </a>
-                                                        <a href="" title="" className="btn btn-sm btn-outline--primary">
-                                                            Xóa
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                {employees && employees.map((i, index) => {
+                                                    return (
+                                                        <tr key={index}>
+                                                            <td>  {i.employee_id} </td>
+                                                            <td><span> {i.firstName}</span> {i.lastName} </td>
+                                                            <td><span> {i.account.name}</span></td>
+                                                            <td><span> {location.address} </span></td>
+                                                            <td><span> {i.account.phone}</span></td>
+                                                            <td><span> {i.account.email}</span></td>
+                                                            <td>
+                                                                <a href="" title="" className="btn btn-sm btn-outline--primary"> Xóa</a>
+                                                            </td>
+                                                        </tr>)
+                                                    })
+                                                }
+                                              
                                         </tbody>
                                     </table>
                                 </div>

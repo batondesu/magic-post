@@ -51,9 +51,19 @@ export default function SideBar() {
                             >
                                 <div className="d-flex align-items-center cursor-pointer">
                                     <LiaFaxSolid size={22} className="mr-2" />
-                                    <span className="menu-title">Thống kê hàng</span>
+                                    <span className="menu-title">Thống kê hàng nhận</span>
                                 </div>
-                            </li>            
+                            </li>         
+
+                            <li
+                                className="sidebar-menu-item nav-link"
+                                onClick={() => setSideBar("orderlist")}
+                            >
+                                <div className="d-flex align-items-center cursor-pointer">
+                                    <LiaFaxSolid size={22} className="mr-2" />
+                                    <span className="menu-title">Thống kê hàng gửi</span>
+                                </div>
+                            </li>               
                         </ul>
                     </div>
                 </div>

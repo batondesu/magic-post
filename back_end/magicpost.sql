@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th12 28, 2023 lúc 10:09 AM
--- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.1.12
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th12 28, 2023 lúc 10:28 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `magicpost`
+-- Cơ sở dữ liệu: `testDT`
 --
 
 -- --------------------------------------------------------
@@ -67,16 +67,18 @@ CREATE TABLE `customers` (
   `firstname` varchar(50) DEFAULT NULL,
   `lastname` varchar(50) NOT NULL,
   `phone` varchar(50) DEFAULT NULL,
-  `address` varchar(1000) DEFAULT NULL,
-  `account_id` int(11) NOT NULL
+  `address` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `customers`
 --
 
-INSERT INTO `customers` (`customer_id`, `firstname`, `lastname`, `phone`, `address`, `account_id`) VALUES
-(1, 'Tran', 'Toan', '0368432907', NULL, 4);
+INSERT INTO `customers` (`customer_id`, `firstname`, `lastname`, `phone`, `address`) VALUES
+(1, 'Tran', 'Toan', '0368432907', NULL),
+(2, 'Nguyen Van', 'X', '0123456789', 'VP'),
+(3, 'Duong', 'Manh', '0868716264', 'Bx, Vp'),
+(6, 'Nguyen', 'Linh', '012345678910', 'Bo Cong An');
 
 -- --------------------------------------------------------
 
@@ -138,7 +140,7 @@ CREATE TABLE `orders` (
   `order_date` date NOT NULL,
   `status` varchar(50) NOT NULL,
   `sending_location` int(11) NOT NULL,
-  `reciving_location` int(11) NOT NULL,
+  `receiving_location` int(11) NOT NULL,
   `parcel_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -146,12 +148,15 @@ CREATE TABLE `orders` (
 -- Đang đổ dữ liệu cho bảng `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `order_date`, `status`, `sending_location`, `reciving_location`, `parcel_id`) VALUES
+INSERT INTO `orders` (`order_id`, `order_date`, `status`, `sending_location`, `receiving_location`, `parcel_id`) VALUES
 (1, '2023-11-11', 'shipping', 1, 2, 1),
 (2, '2023-10-11', 'shipped', 3, 1, 1),
 (3, '2023-10-10', 'shipped', 2, 3, 1),
 (4, '2023-10-13', 'shipping', 2, 4, 2),
-(6, '2023-11-13', 'cancelled', 4, 4, 3);
+(6, '2023-11-13', 'cancelled', 4, 4, 3),
+(7, '2023-12-29', 'shipping', 1, 2, 3),
+(8, '2023-12-29', 'shipping', 1, 2, 3),
+(9, '2023-12-29', 'shipping', 1, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -173,7 +178,20 @@ CREATE TABLE `parcels` (
 INSERT INTO `parcels` (`parcel_id`, `record_date`, `customer_id`, `parcel_code`) VALUES
 (1, '2023-09-09', 1, 'MP2023TT123'),
 (2, '2023-09-09', 1, 'MP2023TT123VN'),
-(3, '2023-10-10', 1, 'MP2023VN432XX');
+(3, '2023-10-10', 1, 'MP2023VN432XX'),
+(4, '2023-12-30', 3, 'zsdneslnfwqn'),
+(6, '2023-12-30', 3, 'bwkafhlvsd'),
+(7, '1970-01-01', 3, 'zefweefbiwe'),
+(8, '1970-01-01', 3, 'u6fR3FRikc'),
+(9, '1970-01-01', 3, 'ygLVxWuHgUmi3Sn'),
+(10, '2023-12-30', 3, 'd2kX4ofyJbLwInN'),
+(11, '2023-12-30', 2, 'Yx7kdkhdPInkPfC'),
+(12, '2023-12-30', 6, '2vyVsfNCPlX8iLY'),
+(13, '2023-12-30', 6, 'cb3WTV6mdzx0uXl'),
+(14, '2023-12-30', 6, 'gZ6h0722A1dVMbt'),
+(15, '2023-12-30', 6, 'R7aHeExAmTE4Deo'),
+(16, '2023-12-30', 6, 'WEulpOyk2grI2Ls'),
+(17, '2023-12-30', 6, 'itz4Ak7ak22DNIU');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -189,8 +207,7 @@ ALTER TABLE `accounts`
 -- Chỉ mục cho bảng `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`customer_id`),
-  ADD KEY `account_id` (`account_id`);
+  ADD PRIMARY KEY (`customer_id`);
 
 --
 -- Chỉ mục cho bảng `employee`
@@ -213,7 +230,7 @@ ALTER TABLE `locations`
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `sending_location` (`sending_location`),
-  ADD KEY `reciving_location` (`reciving_location`),
+  ADD KEY `reciving_location` (`receiving_location`),
   ADD KEY `fk_parcel_constraint` (`parcel_id`);
 
 --
@@ -237,7 +254,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT cho bảng `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `employee`
@@ -255,23 +272,17 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `parcels`
 --
 ALTER TABLE `parcels`
-  MODIFY `parcel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `parcel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
-
---
--- Các ràng buộc cho bảng `customers`
---
-ALTER TABLE `customers`
-  ADD CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`);
 
 --
 -- Các ràng buộc cho bảng `employee`
@@ -292,7 +303,7 @@ ALTER TABLE `locations`
 ALTER TABLE `orders`
   ADD CONSTRAINT `fk_parcel_constraint` FOREIGN KEY (`parcel_id`) REFERENCES `parcels` (`parcel_id`),
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`sending_location`) REFERENCES `locations` (`location_id`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`reciving_location`) REFERENCES `locations` (`location_id`);
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`receiving_location`) REFERENCES `locations` (`location_id`);
 
 --
 -- Các ràng buộc cho bảng `parcels`

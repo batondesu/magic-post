@@ -14,7 +14,7 @@ import { data } from "autoprefixer";
 
 let myVariable = 1;
 
-export default function OrderListAgent() {
+export default function OrderListAg() {
 
     const [order, setOrder] = useState();
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function OrderListAgent() {
     }, []);
 
     useEffect(() => {
-        axios.get('http://localhost:8000/order/getByReceivingLocation', {
+        axios.get('http://localhost:8000/order/getByReceivingLocation1', {
             params: {
                 id: myVariable
             }
@@ -70,7 +70,7 @@ export default function OrderListAgent() {
             <div className="body-wrapper">
                 <div className="bodywrapper__inner">
                     <div className="d-flex mb-30 flex-wrap gap-3 justify-content-between align-items-center">
-                        <h6 className="page-title">Danh sách hàng nhận</h6>
+                        <h6 className="page-title">Danh sách hàng gửi</h6>
                         <div className="d-flex flex-wrap justify-content-end gap-2 align-items-center breadcrumb-plugins">
                         </div>
                     </div>

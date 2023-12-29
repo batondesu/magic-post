@@ -11,7 +11,7 @@ import { FaLock } from 'react-icons/fa';
 import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-
+let ID = 1, IDemployee = 1;
 const Login = () => {
   
   // const navigate = useNavigate();
@@ -64,9 +64,13 @@ const Login = () => {
             
             // console.log("response.data.account_id");
             // console.log(response.data.location);
-
-            const ID = response.data.location.location_id;
-
+            
+            if (response.data.location != null)
+              ID = response.data.location.location_id;
+            if (response.data.employee != null)
+              IDemployee = response.data.employee.location_id;
+            console.log(ID);
+            console.log(IDemployee);
             const storedAccessToken = localStorage.getItem("accessToken");
             if (storedAccessToken) {
                 if (jwtDecode(storedAccessToken).role === 0) {
@@ -74,7 +78,8 @@ const Login = () => {
                 } else if (jwtDecode(storedAccessToken).role === 5) {
                   window.location.href = "/home";
                 } else if (jwtDecode(storedAccessToken).role === 4) {
-                  window.location.href = "/employee/agent";
+                  window.location.href = `/employee/agent?data=${encodeURIComponent(IDemployee)}`;
+                  //window.location.href = "/employee/agent";
                 } else if (jwtDecode(storedAccessToken).role === 3) {
                   window.location.href = `/location/agent?data=${encodeURIComponent(ID)}`;
                  // router.push(`/location/agent?data=${encodeURIComponent(ID)}`);

@@ -45,6 +45,14 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
+      location_id: {
+        type: DataTypes.INTEGER,
+        //   autoIncrement: true,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
     },
     {
       sequelize,
