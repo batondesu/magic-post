@@ -34,14 +34,18 @@ const orderController = {
     // console.log(urlData);
 
     try {
-      const location_id = req.query.id;
+      const locationid = req.query.id;
+      console.log(req.query);
       const order1 = await Order.findAll({
-        where: { receiving_location: location_id },
+        where: { receiving_location: locationid },
       });
       const order2 = await Order.findAll({
-        where: { sending_location: location_id },
+        where: { sending_location: locationid },
       });
-
+      const address = await Location.findOne({
+        where: { location_id: locationid},
+      });
+    
       if (!order1) {
         res.status(400).json({
           msg: "Order_ID didn't exist!!!",
@@ -50,7 +54,8 @@ const orderController = {
         res.status(200).json({
           msg: "Find successfully!!",
           order1,
-          order2
+          order2,
+          address
         });
       }
     } catch (error) {

@@ -11,43 +11,43 @@ import { FaBars } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
 import { Button } from "@nextui-org/react";
 import { data } from "autoprefixer";
-const { URLSearchParams } = require('url');
 
+let myVariable = 1;
 
-export default function OrderListAgent() { 
+export default function OrderListAgent() {
     const [data, setData] = useState();
-    const [urlData, setUrlData] = useState();
+    const [urlData, setUrlData] = useState(); 
+    
     useEffect(() => {
-        // Lấy đối tượng URL từ window.location
         const url = new URL(window.location.href);
-        // Lấy giá trị từ query parameter có tên là "data"
         const dataFromUrl = url.searchParams.get('data');
-        // Đặt giá trị vào state
         setUrlData(dataFromUrl);
-    }, []); // Chạy một lần sau khi component mount
+        myVariable = dataFromUrl;
+    }, []); 
 
-    //console.log(urlData);
-    const link = `${urlData}`;
+   
+    useEffect(() => {
+        axios.get('http://localhost:8000/order/getByLocation', {
+            params: {
+                id: myVariable
+            }
+        })
+            .then(response => {
+                // Xử lý dữ liệu phản hồi
+              //  console.log(response.data.address);
+                setData(response.data.order1);
+            })
+            .catch(error => {
+                // Xử lý lỗi nếu có
+                console.error('Error fetching data:', error);
+            });
+    }, []);
 
-    const queryParams = {
-        id: 1,
-      };
-    const params = new URLSearchParams(queryParams);
-    console.log(params);
+    console.log(data);
 
-    // useEffect(() => {
-    //     axios.get(`http://localhost:8000/order/getByLocation`)
-    //     .then(response => {
-    //         // Xử lý dữ liệu phản hồi
-    //         console.log(response.data);
-    //         setData(response.data);
-    //     })
-    //     .catch(error => {
-    //         // Xử lý lỗi nếu có
-    //         console.error('Error fetching data:', error);
-    //     });
-    // }, []);
-    //console.log(link);
+    const listOrder = () => {
+        
+    }
 
     return (
         <div className="page-wrapper default-version">
@@ -107,8 +107,12 @@ export default function OrderListAgent() {
                                                 </select>
                                             </div>
                                             <div className="flex-grow-1">
-                                                <label>Ngày tạo</label>
-                                                <input name="date" type="text" className="date form-control" placeholder="DD/MM/YY" autoComplete="off" />
+                                                <label>Loại hàng</label>
+                                                <select name="type" className="form-control" defaultValue={'0'}>
+                                                    <option value="0">Tất cả</option>
+                                                    <option value="1">Hàng chuyển</option>
+                                                    <option value="2">Hàng nhận</option>
+                                                </select>
                                             </div>
                                             <div className="flex-grow-1 align-self-end">
                                                 <button className="btn btn--primary w-100 h-45">Tìm</button>
@@ -124,7 +128,7 @@ export default function OrderListAgent() {
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Điểm nhận</th>
+                                                    <th>Địa điểm</th>
                                                     <th>Phân loại</th>
                                                     <th>Ngày tạo</th>
                                                     <th>Trạng thái đơn hàng</th>
@@ -134,12 +138,23 @@ export default function OrderListAgent() {
                                             <tbody>
                                                 {/* {data.map(item => (
                                                     <tr>
-                                                        <td> <span> {item.id} </span> </td>
-                                                        <td> <span> {item.id} </span> </td>
+                                                        <td> <span> {item.order_id} </span> </td>
+                                                        <td> <span> {item.order_date} </span> </td>
+                                                        <td> <span> Hàng nhận </span></td>
+                                                        <td> <span> {item.order_date} </span></td>
+                                                        <td> <span> {item.status} </span></td>
+                                                        <td>
+                                                        <a href="" title="" className="btn btn-sm btn-outline--primary mr-2">
+                                                            Chi tiết
+                                                        </a>
+                                                        <a href="" title="" className="btn btn-sm btn-outline--primary">
+                                                            Xóa
+                                                        </a>
+                                                    </td>
                                                     </tr>
                                                 ))} */}
 
-                                                <tr>
+                                                {/* <tr>
                                                     <td>
                                                         <span>2423553252</span>
                                                     </td>
@@ -163,7 +178,7 @@ export default function OrderListAgent() {
                                                             Xóa
                                                         </a>
                                                     </td>
-                                                </tr>
+                                                </tr> */}
 
                                             </tbody>
                                         </table>
