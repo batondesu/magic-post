@@ -35,7 +35,7 @@ export default function OrderListPort() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:8000/user/getByLocation', {
+        axios.get('http://localhost:8000/order/getByReceivingLocation', {
             params: {
                 id: myVariable
             }

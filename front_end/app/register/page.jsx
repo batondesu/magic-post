@@ -10,7 +10,7 @@ import { FaLock } from 'react-icons/fa';
 
 const Register = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
       <div className="bg-white p-8 rounded shadow-md w-1/3">
         <h2 className="text-2xl font-bold mb-4 text-center">Đăng ký</h2>
         <form className="space-y-4">
@@ -153,7 +153,7 @@ const Register = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

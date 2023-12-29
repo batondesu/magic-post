@@ -7,7 +7,7 @@ import './asset/css/bootstrap.min.css'
 import './asset/css/bootstrap-toggle.min.css'
 import './asset/css/app.css'
 
-import imageAsset1 from './asset/imgs/logo.png'
+import imageAsset1 from './asset/imgs/aaa.png'
 import {FaTimes, FaWpforms } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
 import { LiaShippingFastSolid  } from "react-icons/lia";
@@ -21,7 +21,7 @@ export default function SideBar() {
                 <div className="sidebar__inner">
                     <div className="sidebar__logo">
                         <a href="/location" className="sidebar__main-logo">
-                            <Image src={imageAsset1} />
+                        <Image className="w-1/5 h-1/5" src={imageAsset1} />
                         </a>
                     </div>
                     <div className="sidebar__menu-wrapper" id="sidebar__menuWrapper">

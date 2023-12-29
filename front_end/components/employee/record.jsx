@@ -1,15 +1,15 @@
 // Diem giao dich
 'use client'
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-import "./custom.210823.css"
+import axios from "axios";
 // CSS
 import './asset/css/bootstrap-toggle.min.css'
 import './asset/css/bootstrap.min.css'
 import './asset/css/app.css'
-
+import "./custom.210823.css"
 import imageAsset from './asset/imgs/profile.jpg';
 import { FaBars } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
@@ -18,7 +18,7 @@ import { CgPlayTrackNextO } from "react-icons/cg";
 
 export default function Record() {
 
-    // const [selectedOption1, setSelectedOption1] = useState('0');
+    const [provinces, setProvinces] = useState();
     // const [selectedOption2, setSelectedOption2] = useState('0');
 
     // const handleOption1Change = (event) => {
@@ -29,6 +29,17 @@ export default function Record() {
     //     setSelectedOption2(event.target.value);
     // };
 
+    // useEffect(() => {
+    //     axios.get('https://provinces.open-api.vn/api/depth==2')
+    //         .then(response => {
+    //             setProvinces(response.data.data);
+    //         })
+    //         .catch(error => {
+    //             // Xử lý lỗi nếu có
+    //             console.error('Error fetching data:', error);
+    //         });
+    // }, []);
+
     const handleSubmit = (event) => {
         // Xử lý logic khi biểu mẫu được gửi đi
         event.preventDefault();
@@ -36,7 +47,7 @@ export default function Record() {
     };
 
     return (
-        <section classNameName="page-wrapper default-version">
+        <section className="page-wrapper default-version">
             <nav className="navbar-wrapper bg--dark">
                 <div className="navbar__left">
                     <button type="button" className="res-sidebar-open-btn me-3"><FaBars /></button>
@@ -49,7 +60,7 @@ export default function Record() {
                                 <span className="navbar-user__thumb">
                                     <Image
                                         src={imageAsset}
-                                        alt="image" 
+                                        alt="image"
                                     />
                                 </span>
                                 <span className="navbar-user__info">
@@ -145,28 +156,52 @@ export default function Record() {
                                                 <div className="col-xs-12 col-md-12">
                                                     <div className="form-group text-info item">
                                                         <label className="control-label" htmlFor="from_location">
-                                                            Quận/Huyện và Tỉnh/TP
+                                                            Tỉnh/TP
                                                             <span className="required text-danger">*</span>
                                                         </label>
-                                                        <select
-                                                            name="to_local"
-                                                            id="to_local"
+
+                                                        <select id="to_local"
                                                             className="form-control"
                                                             autoComplete="off"
-                                                        ></select>
+                                                            placeholder="Chọn tỉnh" name="calc_shipping_provinces">
+                                                            <option value="">Tỉnh / Thành phố</option>
+                                                            <option value="1">An Giang</option><option value="2">Bà Rịa - Vũng Tàu</option><option value="3">Bạc Liêu</option><option value="4">Bắc Kạn</option><option value="5">Bắc Giang</option><option value="6">Bắc Ninh</option><option value="7">Bến Tre</option><option value="8">Bình Dương</option><option value="9">Bình Định</option><option value="10">Bình Phước</option><option value="11">Bình Thuận</option><option value="12">Cà Mau</option><option value="13">Cao Bằng</option><option value="14">Cần Thơ</option><option value="15">Đà Nẵng</option><option value="16">Đắk Lắk</option><option value="17">Đắk Nông</option><option value="18">Đồng Nai</option><option value="19">Đồng Tháp</option><option value="20">Điện Biên</option><option value="21">Gia Lai</option><option value="22">Hà Giang</option><option value="23">Hà Nam</option><option value="24">Hà Nội</option><option value="25">Hà Tĩnh</option><option value="26">Hải Dương</option><option value="27">Hải Phòng</option><option value="28">Hòa Bình</option><option value="29">Hậu Giang</option><option value="30">Hưng Yên</option><option value="31">Thành phố Hồ Chí Minh</option><option value="32">Khánh Hòa</option><option value="33">Kiên Giang</option><option value="34">Kon Tum</option><option value="35">Lai Châu</option><option value="36">Lào Cai</option><option value="37">Lạng Sơn</option><option value="38">Lâm Đồng</option><option value="39">Long An</option><option value="40">Nam Định</option><option value="41">Nghệ An</option><option value="42">Ninh Bình</option><option value="43">Ninh Thuận</option><option value="44">Phú Thọ</option><option value="45">Phú Yên</option><option value="46">Quảng Bình</option><option value="47">Quảng Nam</option><option value="48">Quảng Ngãi</option><option value="49">Quảng Ninh</option>
+                                                            <option value="50">Quảng Trị</option><option value="51">Sóc Trăng</option><option value="52">Sơn La</option>
+                                                            <option value="53">Tây Ninh</option><option value="54">Thái Bình</option><option value="55">Thái Nguyên</option>
+                                                            <option value="56">Thanh Hóa</option><option value="57">Thừa Thiên - Huế</option><option value="58">Tiền Giang</option>
+                                                            <option value="59">Trà Vinh</option><option value="60">Tuyên Quang</option><option value="61">Vĩnh Long</option>
+                                                            <option value="62">Vĩnh Phúc</option><option value="63">Yên Bái</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="form-group text-info item">
                                                 <label className="control-label" htmlFor="to_postal">
-                                                    Phường/Xã
+                                                    Quận/Huyện
                                                 </label>
-                                                <select
-                                                    name="to_postal"
-                                                    id="to_postal"
+                                                <select id="from_postal"
                                                     className="form-control"
-                                                    autoComplete="off"
-                                                ></select>
+                                                    autoComplete="off" name="calc_shipping_district">
+                                                    <option value="">Quận / Huyện</option>
+                                                    <option value="Quận Ba Đình">Quận Ba Đình</option><option value="Huyện Ba Vì">Huyện Ba Vì</option>
+                                                    <option value="Quận Bắc Từ Liêm">Quận Bắc Từ Liêm</option>
+                                                    <option value="Quận Cầu Giấy">Quận Cầu Giấy</option>
+                                                    <option value="Huyện Chương Mỹ">Huyện Chương Mỹ</option>
+                                                    <option value="Huyện Đan Phượng">Huyện Đan Phượng</option>
+                                                    <option value="Huyện Đông Anh">Huyện Đông Anh</option>
+                                                    <option value="Quận Đống Đa">Quận Đống Đa</option>
+                                                    <option value="Huyện Gia Lâm">Huyện Gia Lâm</option>
+                                                    <option value="Quận Hà Đông">Quận Hà Đông</option>
+                                                    <option value="Quận Hai Bà Trưng">Quận Hai Bà Trưng</option>
+                                                    <option value="Huyện Hoài Đức">Huyện Hoài Đức</option>
+                                                    <option value="Quận Hoàn Kiếm">Quận Hoàn Kiếm</option>
+                                                    <option value="Quận Hoàng Mai">Quận Hoàng Mai</option>
+                                                    <option value="Quận Long Biên">Quận Long Biên</option><option value="Huyện Mê Linh">Huyện Mê Linh</option><option value="Huyện Mỹ Đức">Huyện Mỹ Đức</option><option value="Quận Nam Từ Liêm">Quận Nam Từ Liêm</option><option value="Huyện Phú Xuyên">Huyện Phú Xuyên</option><option value="Huyện Phúc Thọ">Huyện Phúc Thọ</option>
+                                                    <option value="Huyện Quốc Oai">Huyện Quốc Oai</option><option value="Huyện Sóc Sơn">Huyện Sóc Sơn</option><option value="Thị xã Sơn Tây">Thị xã Sơn Tây</option><option value="Quận Tây Hồ">Quận Tây Hồ</option><option value="Huyện Thạch Thất">Huyện Thạch Thất</option>
+                                                    <option value="Huyện Thanh Oai">Huyện Thanh Oai</option><option value="Huyện Thanh Trì">Huyện Thanh Trì</option>
+                                                    <option value="Quận Thanh Xuân">Quận Thanh Xuân</option><option value="Huyện Thường Tín">Huyện Thường Tín</option>
+                                                    <option value="Huyện Ứng Hòa">Huyện Ứng Hòa</option>
+                                                </select>
                                             </div>
                                             <div className="form-group text-info hidden" id="old_inventory">
                                                 <label className="control-label">
@@ -275,26 +310,35 @@ export default function Record() {
                                             </div>
                                             <div className="form-group text-info item">
                                                 <label className="control-label" htmlFor="to_location">
-                                                    Quận/Huyện và Tỉnh/TP
+                                                    Tỉnh/TP
                                                     <span className="required text-danger">*</span>
                                                 </label>
-                                                <select
-                                                    name="from_local"
-                                                    id="from_local"
+                                                <select id="to_local"
                                                     className="form-control"
                                                     autoComplete="off"
-                                                ></select>
+                                                    placeholder="Chọn tỉnh" name="calc_shipping_provinces">
+                                                    <option value="">Tỉnh / Thành phố</option>
+                                                    <option value="1">An Giang</option><option value="2">Bà Rịa - Vũng Tàu</option><option value="3">Bạc Liêu</option><option value="4">Bắc Kạn</option><option value="5">Bắc Giang</option><option value="6">Bắc Ninh</option><option value="7">Bến Tre</option><option value="8">Bình Dương</option><option value="9">Bình Định</option><option value="10">Bình Phước</option><option value="11">Bình Thuận</option><option value="12">Cà Mau</option><option value="13">Cao Bằng</option><option value="14">Cần Thơ</option><option value="15">Đà Nẵng</option><option value="16">Đắk Lắk</option><option value="17">Đắk Nông</option><option value="18">Đồng Nai</option><option value="19">Đồng Tháp</option><option value="20">Điện Biên</option><option value="21">Gia Lai</option><option value="22">Hà Giang</option><option value="23">Hà Nam</option><option value="24">Hà Nội</option><option value="25">Hà Tĩnh</option><option value="26">Hải Dương</option><option value="27">Hải Phòng</option><option value="28">Hòa Bình</option><option value="29">Hậu Giang</option><option value="30">Hưng Yên</option><option value="31">Thành phố Hồ Chí Minh</option><option value="32">Khánh Hòa</option><option value="33">Kiên Giang</option><option value="34">Kon Tum</option><option value="35">Lai Châu</option><option value="36">Lào Cai</option><option value="37">Lạng Sơn</option><option value="38">Lâm Đồng</option><option value="39">Long An</option><option value="40">Nam Định</option><option value="41">Nghệ An</option><option value="42">Ninh Bình</option><option value="43">Ninh Thuận</option><option value="44">Phú Thọ</option><option value="45">Phú Yên</option><option value="46">Quảng Bình</option><option value="47">Quảng Nam</option><option value="48">Quảng Ngãi</option><option value="49">Quảng Ninh</option>
+                                                    <option value="50">Quảng Trị</option><option value="51">Sóc Trăng</option><option value="52">Sơn La</option>
+                                                    <option value="53">Tây Ninh</option><option value="54">Thái Bình</option><option value="55">Thái Nguyên</option>
+                                                    <option value="56">Thanh Hóa</option><option value="57">Thừa Thiên - Huế</option><option value="58">Tiền Giang</option>
+                                                    <option value="59">Trà Vinh</option><option value="60">Tuyên Quang</option><option value="61">Vĩnh Long</option>
+                                                    <option value="62">Vĩnh Phúc</option><option value="63">Yên Bái</option>
+                                                </select>
                                             </div>
                                             <div className="form-group text-info item">
                                                 <label className="control-label" htmlFor="to_postal">
-                                                    Phường/Xã
+                                                    Quận/Huyện
                                                 </label>
-                                                <select
-                                                    name="from_postal"
-                                                    id="from_postal"
+
+
+                                                <select id="from_postal"
                                                     className="form-control"
-                                                    autoComplete="off"
-                                                ></select>
+                                                    autoComplete="off" name="calc_shipping_district">
+                                                    <option value="">Quận / Huyện</option><option value="Thành phố Vĩnh Yên">Thành phố Vĩnh Yên</option>
+                                                    <option value="Thị xã Phúc Yên">Thị xã Phúc Yên</option><option value="Huyện Bình Xuyên">Huyện Bình Xuyên</option><option value="Huyện Lập Thạch">Huyện Lập Thạch</option><option value="Huyện Sông Lô">Huyện Sông Lô</option><option value="Huyện Tam Đảo">Huyện Tam Đảo</option><option value="Huyện Tam Dương">Huyện Tam Dương</option><option value="Huyện Vĩnh Tường">Huyện Vĩnh Tường</option>
+                                                    <option value="Huyện Yên Lạc">Huyện Yên Lạc</option>
+                                                </select>
                                             </div>
                                             <div className="form-group text-info item">
                                                 <label className="control-label" htmlFor="to_address">
@@ -332,7 +376,7 @@ export default function Record() {
                                                     type="text"
                                                     id="product_name"
                                                     name="product_name"
-                                                    
+
                                                     autoComplete="off"
                                                     className="form-control"
                                                     required=""
@@ -353,7 +397,7 @@ export default function Record() {
                                                             autoComplete="off"
                                                             data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true"
                                                             placeholder="vnd"
-                                                            
+
                                                         />
                                                     </div>
                                                 </div>
@@ -366,7 +410,7 @@ export default function Record() {
                                                             type="text"
                                                             id="total_weight"
                                                             name="total_weight"
-                                                            
+
                                                             autoComplete="off"
                                                             className="form-control text-right calculator"
                                                             data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true"
@@ -384,7 +428,7 @@ export default function Record() {
                                                             type="text"
                                                             id="total_quantity"
                                                             name="total_quantity"
-                                                            
+
                                                             autoComplete="off"
                                                             className="form-control text-right"
                                                             required=""
@@ -484,13 +528,13 @@ export default function Record() {
                                                         Chuyển phát nhanh EMS - Hàng Hoá
                                                     </option>
                                                 </select>
-                                            
+
                                             </div>
                                             <div className="form-group text-info">
                                                 <label className="control-label" htmlFor="vas">
                                                     Dịch vụ cộng thêm
                                                 </label>
-                                              
+
                                                 <select
                                                     id="service"
                                                     name="service"
@@ -504,7 +548,7 @@ export default function Record() {
                                                     <option value="1">Hàng Hoá</option>
                                                 </select>
                                             </div>
-                                    
+
                                             <div className="form-group text-info">
                                                 <label>
                                                     <input
@@ -568,17 +612,19 @@ export default function Record() {
                                                     Hàng chất lỏng,pin sạc
                                                 </label>
                                             </div>
-                                        
+
                                             <div className="form-group">
                                                 {/* <button type="submit" class="btn btn--primary h-45 w-100 Submitbtn"> Tạo đơn</button> */}
-                                                <button
+                                                <Link
                                                     type="submit"
                                                     className="btn btn--primary h-45 w-100 Submitbtn "
+                                                   href={"/receipt"}
                                                 >
-                                                    GHI NHẬN ĐƠN HÀNG
                                                     
-                                                </button>
-                                        
+                                                    GHI NHẬN ĐƠN HÀNG
+
+                                                </Link>
+
                                             </div>
                                         </div>
                                     </div>

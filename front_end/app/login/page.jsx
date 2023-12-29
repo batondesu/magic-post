@@ -12,6 +12,7 @@ import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 let ID = 1, IDemployee = 1;
+let dataID = 0;
 const Login = () => {
   
   // const navigate = useNavigate();
@@ -24,18 +25,22 @@ const Login = () => {
   useEffect(() => {
     if(localStorage.getItem("accessToken")) {
       const token = localStorage.getItem("accessToken");
+
+      if (localStorage.getItem("data")) dataID = localStorage.getItem("data");
+      console.log(localStorage.getItem("data"));
+
       if (jwtDecode(token).role == 0) {
         window.location.href = "/admin";
       } else if (jwtDecode(token).role == 5) {
         window.location.href = "/home";
       } else if (jwtDecode(token).role == 4) {
-        window.location.href = "/employee/agent";
+        window.location.href = `/employee/agent?data=${encodeURIComponent(dataID)}`;
       } else if (jwtDecode(token).role == 3) {
-        window.location.href = "/location/agent";
+        window.location.href = `/location/agent?data=${encodeURIComponent(dataID)}`;
       } else if (jwtDecode(token).role == 2) {
-        window.location.href = "/employee/port";
+        window.location.href = `/employee/port?data=${encodeURIComponent(dataID)}`;
       } else if (jwtDecode(token).role == 1) {
-        window.location.href = "/location/port";
+        window.location.href = `/location/port?data=${encodeURIComponent(dataID)}`;
       } 
     }
   },[])
@@ -65,12 +70,19 @@ const Login = () => {
             // console.log("response.data.account_id");
             // console.log(response.data.location);
             
-            if (response.data.location != null)
+            if (response.data.location != null) {
               ID = response.data.location.location_id;
-            if (response.data.employee != null)
+              localStorage.setItem("data", ID);
+            }
+            if (response.data.employee != null){
               IDemployee = response.data.employee.location_id;
+              localStorage.setItem("data", IDemployee);
+            }
             console.log(ID);
             console.log(IDemployee);
+
+            console.log(localStorage.getItem("data"));
+
             const storedAccessToken = localStorage.getItem("accessToken");
             if (storedAccessToken) {
                 if (jwtDecode(storedAccessToken).role === 0) {
@@ -84,9 +96,9 @@ const Login = () => {
                   window.location.href = `/location/agent?data=${encodeURIComponent(ID)}`;
                  // router.push(`/location/agent?data=${encodeURIComponent(ID)}`);
                 } else if (jwtDecode(storedAccessToken).role === 2) {
-                  window.location.href = "/employee/port";
+                  window.location.href = `/employee/port?data=${encodeURIComponent(IDemployee)}`;
                 } else if (jwtDecode(storedAccessToken).role === 1) {
-                  window.location.href = "/location/port";
+                  window.location.href = `/location/port?data=${encodeURIComponent(ID)}`;
                 } 
               }
             

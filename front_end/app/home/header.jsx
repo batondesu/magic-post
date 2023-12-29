@@ -10,7 +10,7 @@ export default function Header() {
                 <div className="container bg-transparent">
                     <nav className="bg-transparent flex justify-between items-center py-3">
                         <a className="text-3xl font-semibold leading-none" href="/home">
-                            
+                        
                         </a>
                         <ul className="hidden lg:flex lg:items-center lg:w-auto lg:space-x-12">
                             <li className="pt-4 pb-4">
@@ -68,7 +68,7 @@ export default function Header() {
                 <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto transition duration-300">
                     <div className="flex items-center mb-8">
                         <a className="mr-auto text-3xl font-semibold leading-none" href="#">
-                            <Image className="h-10" src={imageAsset1} alt="" />
+                        <Image className="w-1/5 h-1/5" src={imageAsset1} alt="" />
                         </a>
                         <button className="navbar-close">
                             <svg className="h-6 w-6 text-blueGray-400 cursor-pointer hover:text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
