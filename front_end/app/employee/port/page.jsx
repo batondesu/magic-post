@@ -17,7 +17,7 @@ export default function EmployeePort() {
       <div className="page-wrapper default-version">
         {sideBar == "dashboard" && <DashBoard />}
         {sideBar == "sending" && <Sending />}
-        {sideBar == "reciving" && <Reciving />}
+        {sideBar == "receiving" && <Reciving />}
         {sideBar == "create-order" && <CreateOrder />}
       </div>
     </section>
